@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <MapKit/MapKit.h>    
 
-@interface SampleAppViewController : UIViewController
+#import "SampleAppRandomYelpRecommender.h"
+
+
+@interface SampleAppViewController : UIViewController <SampleAppRandomYelpRecommenderDelegate>
 
 @end
