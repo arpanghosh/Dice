@@ -86,7 +86,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="cDx-FM-NNB">
-                                <rect key="frame" x="142" y="221" width="37" height="37"/>
+                                <rect key="frame" x="142" y="248" width="37" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="color" cocoaTouchSystemColor="darkTextColor"/>
                             </activityIndicatorView>
@@ -97,11 +97,19 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Searching for recommendations..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="aj3-K0-efi">
+                                <rect key="frame" x="20" y="216" width="280" height="24"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
                         <outlet property="loadingRecommendation" destination="cDx-FM-NNB" id="FeC-Ow-3tQ"/>
+                        <outlet property="loadingRecommendationMessage" destination="aj3-K0-efi" id="lIX-Tl-Yib"/>
                         <outlet property="recommendationBusinessCategory" destination="cr8-Ge-Se4" id="0Ox-ph-jtC"/>
                         <outlet property="recommendationBusinessCrossStreet" destination="CJz-wK-3oK" id="gfY-Os-Vua"/>
                         <outlet property="recommendationBusinessDistance" destination="2v7-sD-WXh" id="FUz-i5-rn3"/>

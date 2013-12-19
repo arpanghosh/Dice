@@ -26,6 +26,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *recommendationBusinessStreetAddress;
 @property (weak, nonatomic) IBOutlet UILabel *recommendationBusinessCrossStreet;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingRecommendation;
+@property (weak, nonatomic) IBOutlet UILabel *loadingRecommendationMessage;
 @property (weak, nonatomic) IBOutlet UILabel *recommendationError;
 
 @property (strong, nonatomic) UITapGestureRecognizer *imageTapGestureRecognizer;
@@ -114,6 +115,8 @@
 -(void)updateViewWithNewRecommendation{
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.loadingRecommendation stopAnimating];
+        self.loadingRecommendationMessage.hidden = YES;
+        
         if (self.randomRecommendation) {
             self.recommendationBusinessName.text = self.randomRecommendation.name;
             self.recommendationBusinessName.hidden = NO;
@@ -165,6 +168,8 @@
         self.recommendationBusinessImage.hidden = YES;
         self.recommendationBusinessRatingImage.hidden = YES;
         self.recommendationError.hidden = YES;
+        
+        self.loadingRecommendationMessage.hidden = NO;
         [self.loadingRecommendation startAnimating];
     });
 }
