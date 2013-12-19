@@ -179,6 +179,7 @@
     [self logWithMessage:@"Failed to fetch random Yelp recommendation with error" andError:error];
     dispatch_async(dispatch_get_main_queue(), ^{
         [self.loadingRecommendation stopAnimating];
+        self.loadingRecommendationMessage.hidden = YES;
         self.recommendationError.hidden = NO;
     });
 }
