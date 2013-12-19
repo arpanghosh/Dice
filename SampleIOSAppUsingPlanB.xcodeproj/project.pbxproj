@@ -10,7 +10,6 @@
 		81B8DDA3186157D80093CC04 /* SampleAppYelpRecommendation.m in Sources */ = {isa = PBXBuildFile; fileRef = 81B8DDA2186157D80093CC04 /* SampleAppYelpRecommendation.m */; };
 		81B8DDA81862BB570093CC04 /* image_not_available_small.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 81B8DDA71862BB570093CC04 /* image_not_available_small.jpg */; };
 		81B8DDAA1862BB850093CC04 /* image_not_available.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 81B8DDA91862BB850093CC04 /* image_not_available.jpg */; };
-		81B8DDAC1863011A0093CC04 /* iAd.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81B8DDAB1863011A0093CC04 /* iAd.framework */; };
 		81B9CF211860FD7D00F9646C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81B9CF201860FD7D00F9646C /* Foundation.framework */; };
 		81B9CF231860FD7D00F9646C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81B9CF221860FD7D00F9646C /* CoreGraphics.framework */; };
 		81B9CF251860FD7D00F9646C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81B9CF241860FD7D00F9646C /* UIKit.framework */; };
@@ -155,7 +154,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				81B8DDAC1863011A0093CC04 /* iAd.framework in Frameworks */,
 				81B9CF5D1860FDFB00F9646C /* libxml2.dylib in Frameworks */,
 				81B9CF5B1860FDEA00F9646C /* Security.framework in Frameworks */,
 				81B9CF591860FDE300F9646C /* CoreLocation.framework in Frameworks */,
