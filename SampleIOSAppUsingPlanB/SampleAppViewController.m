@@ -9,9 +9,6 @@
 #import "SampleAppViewController.h"
 
 
-
-
-
 @interface SampleAppViewController ()
 
 @property (nonatomic, strong) SampleAppRandomYelpRecommender *recommender;
@@ -34,7 +31,6 @@
 @property (strong, nonatomic) UITapGestureRecognizer *addressTapGestureRecognizer;
 @property (strong, nonatomic) CLGeocoder *geocoder;
 
-
 @property (strong, nonatomic) SampleAppYelpRecommendation *randomRecommendation;
 
 @end
@@ -42,6 +38,8 @@
 
 @implementation SampleAppViewController
 
+// Methods to handle a user's tap for loading the Yelp mobile page
+/*******************************************************************************************************************/
 
 -(UITapGestureRecognizer *)imageTapGestureRecognizer{
     if (!_imageTapGestureRecognizer){
@@ -61,6 +59,23 @@
 }
 
 
+-(void)respondToImageTap{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.randomRecommendation.yelpURL]];
+}
+
+
+-(void)respondToSnippetTap{
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.randomRecommendation.yelpURL]];
+}
+
+/******************************************************************************************************************/
+
+
+
+
+// Methods to handle a user's tap for loading the Maps app to display the business' location
+/******************************************************************************************************************/
+
 -(UITapGestureRecognizer *)addressTapGestureRecognizer{
     if (!_addressTapGestureRecognizer){
         _addressTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(respondToAddressTap)];
@@ -78,16 +93,6 @@
 }
 
 
--(void)respondToImageTap{
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.randomRecommendation.yelpURL]];
-}
-
-
--(void)respondToSnippetTap{
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.randomRecommendation.yelpURL]];
-}
-
-
 -(void)respondToAddressTap{
     [self.geocoder geocodeAddressString:self.randomRecommendation.fullAddress
                       completionHandler:^(NSArray *placemarks, NSError *error) {
@@ -102,7 +107,23 @@
                               }
                           }
     }];
-    
+}
+
+/*************************************************************************************************************************/
+
+
+
+
+
+// SampleAppRandomYelpRecommender related methods
+/**************************************************************************************************************/
+
+-(SampleAppRandomYelpRecommender *)recommender{
+    if (!_recommender) {
+        _recommender = [SampleAppRandomYelpRecommender getRecommender];
+        _recommender.delegate = self;
+    }
+    return _recommender;
 }
 
 
@@ -111,6 +132,23 @@
     [self updateViewWithNewRecommendation];
 }
 
+
+- (void)didFailToGenerateRandomRecommendationWithError:(NSError *)error{
+    [self logWithMessage:@"Failed to fetch random Yelp recommendation with error" andError:error];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.loadingRecommendation stopAnimating];
+        self.loadingRecommendationMessage.hidden = YES;
+        self.recommendationError.hidden = NO;
+    });
+}
+
+/*************************************************************************************************************/
+
+
+
+
+// Methods for drawing the UI
+/************************************************************************************************************/
 
 -(void)updateViewWithNewRecommendation{
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -175,15 +213,21 @@
 }
 
 
-- (void)didFailToGenerateRandomRecommendationWithError:(NSError *)error{
-    [self logWithMessage:@"Failed to fetch random Yelp recommendation with error" andError:error];
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self.loadingRecommendation stopAnimating];
-        self.loadingRecommendationMessage.hidden = YES;
-        self.recommendationError.hidden = NO;
-    });
+-(void) initializeUI{
+    [self clearViewElements];
+    [self.recommendationBusinessImage addGestureRecognizer:self.imageTapGestureRecognizer];
+    [self.recommendationBusinessSnippet addGestureRecognizer:self.snippetTapGestureRecognizer];
+    [self.recommendationBusinessStreetAddress addGestureRecognizer:self.addressTapGestureRecognizer];
 }
 
+/**************************************************************************************************************/
+
+
+
+
+
+// Methods to handle the device's 'shake' motion
+/**************************************************************************************************************/
 
 - (BOOL)canBecomeFirstResponder {
     return YES;
@@ -197,37 +241,27 @@
     }
 }
 
+/*************************************************************************************************************/
 
--(SampleAppRandomYelpRecommender *)recommender{
-    if (!_recommender) {
-        _recommender = [SampleAppRandomYelpRecommender getRecommender];
-        _recommender.delegate = self;
-    }
-    return _recommender;
-}
+
 
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    [self initializeUI];
-
-    [self.recommender fetchRandomRecommendation];
-
+    [self initialize];
 }
 
 
--(void) initializeUI{
+// Initialize everything for this ViewController
+-(void)initialize{
     [self becomeFirstResponder];
-    
-    [self clearViewElements];
-    [self.recommendationBusinessImage addGestureRecognizer:self.imageTapGestureRecognizer];
-    [self.recommendationBusinessSnippet addGestureRecognizer:self.snippetTapGestureRecognizer];
-    [self.recommendationBusinessStreetAddress addGestureRecognizer:self.addressTapGestureRecognizer];
+    [self initializeUI];
+    [self.recommender fetchRandomRecommendation];
 }
 
 
+// Logging convenience method
 -(void)logWithMessage:(NSString *)message andError:(NSError *)error{
     NSLog(@"%@ : %@\n%@ : %@", NSStringFromClass([self class]), message,
           [error localizedDescription],
