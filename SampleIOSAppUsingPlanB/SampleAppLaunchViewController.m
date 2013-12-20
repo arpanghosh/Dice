@@ -18,10 +18,6 @@
 
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    /*
-    UIViewController *destinationViewController = [segue destinationViewController];
-    destinationViewController.interstitialPresentationPolicy = ADInterstitialPresentationPolicyAutomatic;
-     */
 }
 
 
