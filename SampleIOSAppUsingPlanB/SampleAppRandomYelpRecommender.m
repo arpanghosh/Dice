@@ -32,7 +32,10 @@
 
 @implementation SampleAppRandomYelpRecommender
 
+// Publicly visible methods
+/************************************************************************************************************/
 
+// Singleton
 +(instancetype)getRecommender{
     static SampleAppRandomYelpRecommender *sharedSampleAppRandomYelpRecommender = nil;
     static dispatch_once_t onceToken;
@@ -43,6 +46,7 @@
 }
 
 
+// Internal initializer
 -(instancetype)init{
     self = [super init];
     if (self){
@@ -64,12 +68,49 @@
         _latestLocation = nil;
         
         _recommendations = [[NSMutableArray alloc] init];
+        
     }
     return self;
 }
 
 
--(void)prepareForNewAPIRequest{
+// Main method for client to request a recommendation
+-(void)fetchRandomRecommendation{
+    if ([self.recommendations count] > 0) {
+        [self respondToDelegateWithRecommendation:[self dequeueRecommendation]];
+    }else{
+        [self fetchRecommendationsFromYelp];
+    }
+}
+
+// Delegate method to call on error
+-(void)respondToDelegateWithError:(NSError *)error{
+    if ([self.delegate respondsToSelector:@selector(didFailToGenerateRandomRecommendationWithError:)]) {
+        [self.delegate didFailToGenerateRandomRecommendationWithError:error];
+    }else{
+        [self logWithMessage:@"No delegate or delegate does not implement didFailToGenerateRandomRecommendationWithError" andError:nil];
+    }
+}
+
+
+// Delegate method to call on successful recommendation generation
+-(void)respondToDelegateWithRecommendation:(SampleAppYelpRecommendation *)recommendation{
+    if ([self.delegate respondsToSelector:@selector(didGenerateARandomRecommendation:)]) {
+        [self.delegate didGenerateARandomRecommendation:recommendation];
+    }else{
+        [self logWithMessage:@"No delegate or delegate does not implement didGenerateARandomRecommendation" andError:nil];
+    }
+}
+
+/*********************************************************************************************************************/
+
+
+
+
+// Methods dealing with the Yelp API
+/*********************************************************************************************************************/
+
+-(void)resetStateBeforeNewAPIRequest{
     _requestResponseData = [NSMutableData data];
     _requestSuccessful = NO;
 }
@@ -88,6 +129,7 @@
     NSString *URLString =
     [NSString stringWithFormat:@"http://api.yelp.com/v2/search?term=restaurants&ll=%f,%f&radius_filter=3219&offset=%d",
      self.latestLocation.coordinate.latitude, self.latestLocation.coordinate.longitude, self.offset];
+    NSLog(@"%@", URLString);
     return [[NSURL alloc] initWithString:URLString];
 }
 
@@ -100,9 +142,9 @@
 
 
 -(void)fetchRecommendationsFromYelp{
-    [self prepareForNewAPIRequest];
+    [self resetStateBeforeNewAPIRequest];
     if (!self.latestLocation ||
-        (fabs([self.latestLocation.timestamp timeIntervalSinceNow]) > 300)) {
+        (fabs([self.latestLocation.timestamp timeIntervalSinceNow]) > 600)) {
         self.offset = 0;
         [self.locationManager startUpdatingLocation];
     }else{
@@ -110,15 +152,12 @@
     }
 }
 
+/******************************************************************************************************************/
 
--(void)fetchRandomRecommendation{
-    if ([self.recommendations count] > 0) {
-        [self respondToDelegateWithRecommendation:[self dequeueRecommendation]];
-    }else{
-        [self fetchRecommendationsFromYelp];
-    }
-}
 
+
+// Methods to handle and randomize Yelp recommendations
+/******************************************************************************************************************/
 
 -(SampleAppYelpRecommendation *)dequeueRecommendation{
     SampleAppYelpRecommendation *recommendation = [self.recommendations lastObject];
@@ -127,7 +166,33 @@
 }
 
 
+-(void)randomizeRecommendations{
+    NSUInteger count = [self.recommendations count];
+    for (NSUInteger i = 0; i < count; ++i) {
+        // Select a random element between i and end of array to swap with.
+        NSInteger nElements = count - i;
+        NSInteger n = arc4random_uniform(nElements) + i;
+        [self.recommendations exchangeObjectAtIndex:i withObjectAtIndex:n];
+    }
+}
+
+
+-(void)populateRecommendationsFromJSON:(NSDictionary *)deserializedRequestResponseData{
+    for (NSDictionary *recommendation in [deserializedRequestResponseData valueForKey:@"businesses"]) {
+        [self.recommendations addObject:[[SampleAppYelpRecommendation alloc]
+                                         initFromAPIResponse:recommendation]];
+    }
+    self.offset += [self.recommendations count];
+    [self randomizeRecommendations];
+}
+
+/*******************************************************************************************************************/
+
+
+
 // CLLocationManager delegate methods
+/*******************************************************************************************************************/
+
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
     [manager stopUpdatingLocation];
     self.latestLocation = [locations lastObject];
@@ -140,8 +205,14 @@
     [self respondToDelegateWithError:error];
 }
 
+/*****************************************************************************************************************/
+
+
+
 
 // NSURLConnection delegate methods
+/*****************************************************************************************************************/
+
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
     if (self.requestSuccessful) {
         [self.requestResponseData appendData:data];
@@ -162,12 +233,7 @@
                                         options:kNilOptions
                                           error:&jsonParsingError];
         if (!jsonParsingError) {
-            for (NSDictionary *recommendation in [deserializedRequestResponseData valueForKey:@"businesses"]) {
-                [self.recommendations addObject:[[SampleAppYelpRecommendation alloc]
-                                                 initFromAPIResponse:recommendation]];
-            }
-            self.offset += [self.recommendations count];
-            [self randomizeRecommendations:self.recommendations];
+            [self populateRecommendationsFromJSON:deserializedRequestResponseData];
             [self respondToDelegateWithRecommendation:[self dequeueRecommendation]];
         }else{
             [self respondToDelegateWithError:jsonParsingError];
@@ -192,36 +258,12 @@
     }
 }
 
-
--(void)respondToDelegateWithError:(NSError *)error{
-    if ([self.delegate respondsToSelector:@selector(didFailToGenerateRandomRecommendationWithError:)]) {
-        [self.delegate didFailToGenerateRandomRecommendationWithError:error];
-    }else{
-        [self logWithMessage:@"No delegate or delegate does not implement didFailToGenerateRandomRecommendationWithError" andError:nil];
-    }
-}
+/*********************************************************************************************************************/
 
 
--(void)respondToDelegateWithRecommendation:(SampleAppYelpRecommendation *)recommendation{
-    if ([self.delegate respondsToSelector:@selector(didGenerateARandomRecommendation:)]) {
-        [self.delegate didGenerateARandomRecommendation:recommendation];
-    }else{
-        [self logWithMessage:@"No delegate or delegate does not implement didGenerateARandomRecommendation" andError:nil];
-    }
-}
 
 
--(void)randomizeRecommendations:(NSMutableArray *)recommendations{
-    NSUInteger count = [recommendations count];
-    for (NSUInteger i = 0; i < count; ++i) {
-        // Select a random element between i and end of array to swap with.
-        NSInteger nElements = count - i;
-        NSInteger n = arc4random_uniform(nElements) + i;
-        [recommendations exchangeObjectAtIndex:i withObjectAtIndex:n];
-    }
-}
-
-
+// Logging convenience method
 -(void)logWithMessage:(NSString *)message andError:(NSError *)error{
     NSLog(@"%@ : %@\n%@ : %@", NSStringFromClass([self class]), message,
               [error localizedDescription],
