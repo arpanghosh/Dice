@@ -129,17 +129,17 @@
 
 - (void)didGenerateARandomRecommendation:(SampleAppYelpRecommendation *)randomRecommendation{
     self.randomRecommendation = randomRecommendation;
-    [self updateViewWithNewRecommendation];
+    if (self.randomRecommendation) {
+        [self updateViewWithValidRecommendation];
+    }else{
+        [self updateViewInCaseOfNoRecommendation];
+    }
 }
 
 
 - (void)didFailToGenerateRandomRecommendationWithError:(NSError *)error{
+    [self updateViewInCaseOfNoRecommendation];
     [self logWithMessage:@"Failed to fetch random Yelp recommendation with error" andError:error];
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [self.loadingRecommendation stopAnimating];
-        self.loadingRecommendationMessage.hidden = YES;
-        self.recommendationError.hidden = NO;
-    });
 }
 
 /*************************************************************************************************************/
@@ -150,74 +150,76 @@
 // Methods for drawing the UI
 /************************************************************************************************************/
 
--(void)updateViewWithNewRecommendation{
+
+-(void)updateViewWhileFetchingRecommendation{
     dispatch_async(dispatch_get_main_queue(), ^{
-        [self.loadingRecommendation stopAnimating];
-        self.loadingRecommendationMessage.hidden = YES;
+        [self clearViewElements];
+        [self.loadingRecommendation startAnimating];
+        self.loadingRecommendationMessage.hidden = NO;
+    });
+}
+
+
+-(void)updateViewInCaseOfNoRecommendation{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self clearViewElements];
+        self.recommendationError.hidden = NO;
+    });
+}
+
+
+-(void)updateViewWithValidRecommendation{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self clearViewElements];
         
-        if (self.randomRecommendation) {
-            self.recommendationBusinessName.text = self.randomRecommendation.name;
-            self.recommendationBusinessName.hidden = NO;
-            
-            self.recommendationBusinessCategory.text = self.randomRecommendation.categories;
-            self.recommendationBusinessCategory.hidden = NO;
-            
-            self.recommendationBusinessReviewCount.text =
-            [NSString stringWithFormat:@"%d reviews",self.randomRecommendation.reviewCount];
-            self.recommendationBusinessReviewCount.hidden = NO;
-            
-            self.recommendationBusinessSnippet.text = self.randomRecommendation.snippet;
-            self.recommendationBusinessSnippet.hidden = NO;
-            
-            self.recommendationBusinessDistance.text =
-            [NSString stringWithFormat:@"%.2f miles", self.randomRecommendation.distanceInMiles];
-            self.recommendationBusinessDistance.hidden = NO;
-            
-            
-            NSMutableAttributedString *streetAddressString
-            = [[NSMutableAttributedString alloc] initWithString:self.randomRecommendation.streetAddress];
-            [streetAddressString addAttribute:NSUnderlineStyleAttributeName
+        self.recommendationBusinessName.text = self.randomRecommendation.name;
+        self.recommendationBusinessName.hidden = NO;
+        
+        self.recommendationBusinessCategory.text = self.randomRecommendation.categories;
+        self.recommendationBusinessCategory.hidden = NO;
+        
+        self.recommendationBusinessReviewCount.text =
+        [NSString stringWithFormat:@"%d reviews",self.randomRecommendation.reviewCount];
+        self.recommendationBusinessReviewCount.hidden = NO;
+        
+        self.recommendationBusinessSnippet.text = self.randomRecommendation.snippet;
+        self.recommendationBusinessSnippet.hidden = NO;
+        
+        self.recommendationBusinessDistance.text =
+        [NSString stringWithFormat:@"%.2f miles", self.randomRecommendation.distanceInMiles];
+        self.recommendationBusinessDistance.hidden = NO;
+        
+        
+        NSMutableAttributedString *streetAddressString
+        = [[NSMutableAttributedString alloc] initWithString:self.randomRecommendation.streetAddress];
+        [streetAddressString addAttribute:NSUnderlineStyleAttributeName
                                     value:[NSNumber numberWithInt:1]
                                     range:(NSRange){0,[streetAddressString length]}];
-            self.recommendationBusinessStreetAddress.attributedText = streetAddressString;
-            self.recommendationBusinessStreetAddress.hidden = NO;
-            
-            self.recommendationBusinessCrossStreet.text = self.randomRecommendation.crossStreet;
-            self.recommendationBusinessCrossStreet.hidden = NO;
-            
-            [self.randomRecommendation downloadBusinessImageIfRequiredAndDisplayInImageView:self.recommendationBusinessImage];
-            [self.randomRecommendation downloadRatingImageIfRequiredAndDisplayInImageView:self.recommendationBusinessRatingImage];
-        }else{
-            self.recommendationError.hidden = NO;
-        }
+        self.recommendationBusinessStreetAddress.attributedText = streetAddressString;
+        self.recommendationBusinessStreetAddress.hidden = NO;
+        
+        self.recommendationBusinessCrossStreet.text = self.randomRecommendation.crossStreet;
+        self.recommendationBusinessCrossStreet.hidden = NO;
+        
+        [self.randomRecommendation downloadBusinessImageIfRequiredAndDisplayInImageView:self.recommendationBusinessImage];
+        [self.randomRecommendation downloadRatingImageIfRequiredAndDisplayInImageView:self.recommendationBusinessRatingImage];
     });
 }
 
 
 -(void)clearViewElements{
-    dispatch_async(dispatch_get_main_queue(), ^{
-        self.recommendationBusinessName.hidden = YES;
-        self.recommendationBusinessCategory.hidden = YES;
-        self.recommendationBusinessReviewCount.hidden = YES;
-        self.recommendationBusinessSnippet.hidden = YES;
-        self.recommendationBusinessDistance.hidden = YES;
-        self.recommendationBusinessStreetAddress.hidden = YES;
-        self.recommendationBusinessCrossStreet.hidden = YES;
-        self.recommendationBusinessImage.hidden = YES;
-        self.recommendationBusinessRatingImage.hidden = YES;
-        self.recommendationError.hidden = YES;
-        
-        self.loadingRecommendationMessage.hidden = NO;
-        [self.loadingRecommendation startAnimating];
-    });
-}
-
-
--(void) initializeUI{
-    [self clearViewElements];
-    [self.recommendationBusinessImage addGestureRecognizer:self.imageTapGestureRecognizer];
-    [self.recommendationBusinessSnippet addGestureRecognizer:self.snippetTapGestureRecognizer];
-    [self.recommendationBusinessStreetAddress addGestureRecognizer:self.addressTapGestureRecognizer];
+    self.recommendationBusinessName.hidden = YES;
+    self.recommendationBusinessCategory.hidden = YES;
+    self.recommendationBusinessReviewCount.hidden = YES;
+    self.recommendationBusinessSnippet.hidden = YES;
+    self.recommendationBusinessDistance.hidden = YES;
+    self.recommendationBusinessStreetAddress.hidden = YES;
+    self.recommendationBusinessCrossStreet.hidden = YES;
+    self.recommendationBusinessImage.hidden = YES;
+    self.recommendationBusinessRatingImage.hidden = YES;
+    self.recommendationError.hidden = YES;
+    self.loadingRecommendationMessage.hidden = YES;
+    [self.loadingRecommendation stopAnimating];
 }
 
 /**************************************************************************************************************/
@@ -236,7 +238,7 @@
 
 -(void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event{
     if (motion == UIEventSubtypeMotionShake) {
-        [self clearViewElements];
+        [self updateViewWhileFetchingRecommendation];
         [self.recommender fetchRandomRecommendation];
     }
 }
@@ -255,9 +257,18 @@
 
 // Initialize everything for this ViewController
 -(void)initialize{
-    [self becomeFirstResponder];
-    [self initializeUI];
+    [self updateViewWhileFetchingRecommendation];
     [self.recommender fetchRandomRecommendation];
+    
+    [self becomeFirstResponder];
+    [self initializeGestureRecognizers];
+}
+
+
+-(void) initializeGestureRecognizers{
+    [self.recommendationBusinessImage addGestureRecognizer:self.imageTapGestureRecognizer];
+    [self.recommendationBusinessSnippet addGestureRecognizer:self.snippetTapGestureRecognizer];
+    [self.recommendationBusinessStreetAddress addGestureRecognizer:self.addressTapGestureRecognizer];
 }
 
 
