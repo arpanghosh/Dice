@@ -31,7 +31,7 @@
         _ratingImageURL = [recommendation valueForKey:@"rating_img_url_large"];
         _ratingImage = nil;
         _snippet = [recommendation valueForKey:@"snippet_text"];
-        _streetAddress = [[[recommendation valueForKey:@"location"] valueForKey:@"address"] objectAtIndex:0];
+        _streetAddress = [[[recommendation valueForKey:@"location"] valueForKey:@"address"] firstObject] != nil ? [[[recommendation valueForKey:@"location"] valueForKey:@"address"] firstObject] : @"";
         _crossStreet = [[recommendation valueForKey:@"location"] valueForKey:@"cross_streets"] != nil ? [[recommendation valueForKey:@"location"] valueForKey:@"cross_streets"] : @"";
         
         
@@ -103,11 +103,6 @@
             ratingImageView.image = _ratingImage;
         });
     }
-}
-
-
--(NSString *)description{
-    return self.name;
 }
 
 @end
