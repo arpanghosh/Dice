@@ -129,7 +129,6 @@
     NSString *URLString =
     [NSString stringWithFormat:@"http://api.yelp.com/v2/search?term=restaurants&ll=%f,%f&radius_filter=3219&offset=%d",
      self.latestLocation.coordinate.latitude, self.latestLocation.coordinate.longitude, self.offset];
-    NSLog(@"%@", URLString);
     return [[NSURL alloc] initWithString:URLString];
 }
 
