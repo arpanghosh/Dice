@@ -43,7 +43,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="8zG-nv-b4L"/>
                     <connections>
-                        <segue destination="vXZ-lx-hvc" kind="modal" identifier="LAUNCH_TO_MAIN" id="g9g-CI-DIT"/>
+                        <segue destination="vXZ-lx-hvc" kind="modal" identifier="LAUNCH_TO_MAIN" modalTransitionStyle="crossDissolve" id="g9g-CI-DIT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3eQ-ho-FoA" userLabel="First Responder" sceneMemberID="firstResponder"/>
