@@ -10,6 +10,7 @@
 
 @interface SampleAppYelpRecommendation : NSObject
 
+@property (nonatomic, strong) NSString* businessID;
 @property (nonatomic, strong, readonly) NSString* name;
 @property (nonatomic, strong, readonly) NSString* imageURL;
 @property (nonatomic, strong) UIImage* image;

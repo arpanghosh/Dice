@@ -38,12 +38,12 @@
 
 @implementation SampleAppViewController
 
-// Methods to handle a user's tap for loading the Yelp mobile page
+// Methods to handle a user's tap for loading the Yelp page for the business
 /*******************************************************************************************************************/
 
 -(UITapGestureRecognizer *)imageTapGestureRecognizer{
     if (!_imageTapGestureRecognizer){
-        _imageTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(respondToImageTap)];
+        _imageTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(openBusinessPageinYelp)];
         _imageTapGestureRecognizer.numberOfTapsRequired = 1;
     }
     return _imageTapGestureRecognizer;
@@ -52,20 +52,20 @@
 
 -(UITapGestureRecognizer *)snippetTapGestureRecognizer{
     if (!_snippetTapGestureRecognizer){
-        _snippetTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(respondToSnippetTap)];
+        _snippetTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(openBusinessPageinYelp)];
         _snippetTapGestureRecognizer.numberOfTapsRequired = 1;
     }
     return _snippetTapGestureRecognizer;
 }
 
 
--(void)respondToImageTap{
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.randomRecommendation.yelpURL]];
-}
-
-
--(void)respondToSnippetTap{
-    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.randomRecommendation.yelpURL]];
+-(void)openBusinessPageinYelp{
+    if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"yelp:"]]) {
+        [[UIApplication sharedApplication]
+         openURL:[NSURL URLWithString:[NSString stringWithFormat:@"yelp:///biz/%@", self.randomRecommendation.businessID]]];
+    }else{
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.randomRecommendation.yelpURL]];
+    }
 }
 
 /******************************************************************************************************************/
@@ -257,6 +257,12 @@
 
 // Initialize everything for this ViewController
 -(void)initialize{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.view.backgroundColor =
+        [UIColor colorWithPatternImage:[UIImage imageNamed:@"tablecloth_texture.png"]];
+    });
+    
+    
     [self updateViewWhileFetchingRecommendation];
     [self.recommender fetchRandomRecommendation];
     

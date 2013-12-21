@@ -19,6 +19,7 @@
 -(instancetype)initFromAPIResponse:(NSDictionary *)recommendation{
     self = [super init];
     if (self){
+        _businessID = [recommendation valueForKey:@"id"];
         _name = [recommendation valueForKey:@"name"];
         _imageURL = [[recommendation valueForKey:@"image_url"]
                      stringByReplacingOccurrencesOfString:@"ms.jpg" withString:@"l.jpg"];
