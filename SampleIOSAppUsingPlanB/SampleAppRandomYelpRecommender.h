@@ -14,6 +14,14 @@
 #import "SampleAppYelpRecommendation.h"
 
 
+typedef enum YelpRequestStates {
+   YelpRequestStateUndefined = 0,
+    YelpRequestStateStarted,
+    YelpRequestStateSuccessful,
+    YelpRequestStateFailed
+}YelpRequestState;
+
+
 @protocol SampleAppRandomYelpRecommenderDelegate <NSObject>
 
 -(void)didGenerateARandomRecommendation:(SampleAppYelpRecommendation *)randomRecommendation;

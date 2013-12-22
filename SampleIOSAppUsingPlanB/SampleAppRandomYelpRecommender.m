@@ -19,7 +19,7 @@
 @property (nonatomic, strong) OAToken *token;
 @property (nonatomic, strong) id<OASignatureProviding, NSObject> provider;
 
-@property (nonatomic) BOOL requestSuccessful;
+@property (nonatomic) YelpRequestState requestState;
 @property (nonatomic) NSInteger offset;
 @property (nonatomic, strong) NSMutableData* requestResponseData;
 @property (nonatomic, strong) NSMutableArray* recommendations;
@@ -69,6 +69,8 @@
         
         _recommendations = [[NSMutableArray alloc] init];
         
+        _requestState = YelpRequestStateUndefined;
+        
     }
     return self;
 }
@@ -112,7 +114,7 @@
 
 -(void)resetStateBeforeNewAPIRequest{
     _requestResponseData = [NSMutableData data];
-    _requestSuccessful = NO;
+    _requestState = YelpRequestStateUndefined;
 }
 
 
@@ -134,9 +136,13 @@
 
 
 -(void)createAPIRequestAndFetchData{
-    OAMutableURLRequest *yelpAPIRequest = [self generateYelpAPIRequestBasedOnCurrentLocation];
-    [yelpAPIRequest prepare];
-    [NSURLConnection connectionWithRequest:yelpAPIRequest delegate:self];
+    if (self.requestState != YelpRequestStateStarted) {
+        OAMutableURLRequest *yelpAPIRequest = [self generateYelpAPIRequestBasedOnCurrentLocation];
+        [yelpAPIRequest prepare];
+        self.requestState = YelpRequestStateStarted;
+        NSLog(@"Made a Yelp API request");
+        [NSURLConnection connectionWithRequest:yelpAPIRequest delegate:self];
+    }
 }
 
 
@@ -213,7 +219,7 @@
 /*****************************************************************************************************************/
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
-    if (self.requestSuccessful) {
+    if (self.requestState == YelpRequestStateSuccessful) {
         [self.requestResponseData appendData:data];
     }
 }
@@ -225,12 +231,13 @@
 
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection{
-    if (self.requestSuccessful) {
+    if (self.requestState == YelpRequestStateSuccessful) {
         NSError *jsonParsingError;
         NSDictionary *deserializedRequestResponseData =
         [NSJSONSerialization JSONObjectWithData:self.requestResponseData
                                         options:kNilOptions
                                           error:&jsonParsingError];
+        //NSLog(@"%@", [NSString stringWithUTF8String:[self.requestResponseData bytes]]);
         if (!jsonParsingError) {
             [self populateRecommendationsFromJSON:deserializedRequestResponseData];
             [self respondToDelegateWithRecommendation:[self dequeueRecommendation]];
@@ -251,8 +258,9 @@
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response{
     NSHTTPURLResponse *responseHTTP = (NSHTTPURLResponse *)response;
     if ([responseHTTP statusCode] == 200) {
-        self.requestSuccessful = YES;
+        self.requestState = YelpRequestStateSuccessful;
     }else{
+        self.requestState = YelpRequestStateFailed;
         [self logWithMessage:[NSString stringWithFormat:@"HTTP request failed with status code %d", [responseHTTP statusCode]] andError:nil];
     }
 }

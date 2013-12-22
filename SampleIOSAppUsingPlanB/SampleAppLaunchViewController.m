@@ -26,8 +26,9 @@
 }
 
 
--(void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event{
+-(void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event{
     if (motion == UIEventSubtypeMotionShake) {
+        AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
         [self performSegueWithIdentifier:@"LAUNCH_TO_MAIN" sender:self];
     }
 }

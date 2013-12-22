@@ -14,6 +14,7 @@
 		8158DA1B18666AE10082F8AB /* three-dish.png in Resources */ = {isa = PBXBuildFile; fileRef = 8158DA1A18666AE10082F8AB /* three-dish.png */; };
 		8158DA1F186681E60082F8AB /* fork.png in Resources */ = {isa = PBXBuildFile; fileRef = 8158DA1E186681E60082F8AB /* fork.png */; };
 		817089C81866B16500DBD710 /* table-launch-480.png in Resources */ = {isa = PBXBuildFile; fileRef = 817089C71866B16500DBD710 /* table-launch-480.png */; };
+		81A1E9121866DE4F00ACCE4A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81A1E9111866DE4F00ACCE4A /* AudioToolbox.framework */; };
 		81B8DDA3186157D80093CC04 /* SampleAppYelpRecommendation.m in Sources */ = {isa = PBXBuildFile; fileRef = 81B8DDA2186157D80093CC04 /* SampleAppYelpRecommendation.m */; };
 		81B9CF211860FD7D00F9646C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81B9CF201860FD7D00F9646C /* Foundation.framework */; };
 		81B9CF231860FD7D00F9646C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81B9CF221860FD7D00F9646C /* CoreGraphics.framework */; };
@@ -97,6 +98,7 @@
 		8158DA1A18666AE10082F8AB /* three-dish.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "three-dish.png"; path = "Images.xcassets/three-dish.png"; sourceTree = "<group>"; };
 		8158DA1E186681E60082F8AB /* fork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fork.png; path = Images.xcassets/fork.png; sourceTree = "<group>"; };
 		817089C71866B16500DBD710 /* table-launch-480.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "table-launch-480.png"; path = "Images.xcassets/table-launch-480.png"; sourceTree = "<group>"; };
+		81A1E9111866DE4F00ACCE4A /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		81B8DDA1186157D80093CC04 /* SampleAppYelpRecommendation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SampleAppYelpRecommendation.h; path = ../SampleAppYelpRecommendation.h; sourceTree = "<group>"; };
 		81B8DDA2186157D80093CC04 /* SampleAppYelpRecommendation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SampleAppYelpRecommendation.m; path = ../SampleAppYelpRecommendation.m; sourceTree = "<group>"; };
 		81B8DDAB1863011A0093CC04 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
@@ -175,6 +177,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81A1E9121866DE4F00ACCE4A /* AudioToolbox.framework in Frameworks */,
 				81B9CF5D1860FDFB00F9646C /* libxml2.dylib in Frameworks */,
 				81B9CF5B1860FDEA00F9646C /* Security.framework in Frameworks */,
 				81B9CF591860FDE300F9646C /* CoreLocation.framework in Frameworks */,
@@ -275,6 +278,7 @@
 		81B9CF1F1860FD7D00F9646C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				81A1E9111866DE4F00ACCE4A /* AudioToolbox.framework */,
 				81B8DDAB1863011A0093CC04 /* iAd.framework */,
 				81B9CF5E1860FED300F9646C /* ios-oauthconsumer */,
 				81B9CF5C1860FDFB00F9646C /* libxml2.dylib */,
@@ -442,6 +446,9 @@
 				LastUpgradeCheck = 0500;
 				ORGANIZATIONNAME = "Plan B";
 				TargetAttributes = {
+					81B9CF1C1860FD7D00F9646C = {
+						DevelopmentTeam = C9QFX7Y2EN;
+					};
 					81B9CF401860FD7D00F9646C = {
 						TestTargetID = 81B9CF1C1860FD7D00F9646C;
 					};
@@ -683,11 +690,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SampleIOSAppUsingPlanB/SampleIOSAppUsingPlanB-Prefix.pch";
 				INFOPLIST_FILE = "SampleIOSAppUsingPlanB/SampleIOSAppUsingPlanB-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
@@ -698,11 +708,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SampleIOSAppUsingPlanB/SampleIOSAppUsingPlanB-Prefix.pch";
 				INFOPLIST_FILE = "SampleIOSAppUsingPlanB/SampleIOSAppUsingPlanB-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
