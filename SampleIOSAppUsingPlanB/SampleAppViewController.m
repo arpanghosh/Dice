@@ -182,20 +182,15 @@
         [NSString stringWithFormat:@"%d reviews",self.randomRecommendation.reviewCount];
         self.recommendationBusinessReviewCount.hidden = NO;
         
-        self.recommendationBusinessSnippet.text = self.randomRecommendation.snippet;
+        self.recommendationBusinessSnippet.text =
+        [NSString stringWithFormat:@"\"%@\"", self.randomRecommendation.snippet];
         self.recommendationBusinessSnippet.hidden = NO;
         
         self.recommendationBusinessDistance.text =
         [NSString stringWithFormat:@"%.2f miles", self.randomRecommendation.distanceInMiles];
         self.recommendationBusinessDistance.hidden = NO;
         
-        
-        NSMutableAttributedString *streetAddressString
-        = [[NSMutableAttributedString alloc] initWithString:self.randomRecommendation.streetAddress];
-        [streetAddressString addAttribute:NSUnderlineStyleAttributeName
-                                    value:[NSNumber numberWithInt:1]
-                                    range:(NSRange){0,[streetAddressString length]}];
-        self.recommendationBusinessStreetAddress.attributedText = streetAddressString;
+        self.recommendationBusinessStreetAddress.text = self.randomRecommendation.streetAddress;
         self.recommendationBusinessStreetAddress.hidden = NO;
         
         self.recommendationBusinessCrossStreet.text = self.randomRecommendation.crossStreet;
@@ -257,17 +252,19 @@
 
 // Initialize everything for this ViewController
 -(void)initialize{
-    dispatch_async(dispatch_get_main_queue(), ^{
-        self.view.backgroundColor =
-        [UIColor colorWithPatternImage:[UIImage imageNamed:@"tablecloth_texture.png"]];
-    });
-    
+    [self becomeFirstResponder];
+    [self initializeGestureRecognizers];
+    [self initializeUIElements];
     
     [self updateViewWhileFetchingRecommendation];
     [self.recommender fetchRandomRecommendation];
-    
-    [self becomeFirstResponder];
-    [self initializeGestureRecognizers];
+}
+
+
+-(void)initializeUIElements{
+    self.recommendationBusinessReviewCount.layer.cornerRadius = 4;
+    self.recommendationBusinessStreetAddress.layer.cornerRadius = 4;
+    self.recommendationBusinessDistance.layer.cornerRadius = 4;
 }
 
 

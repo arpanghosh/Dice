@@ -63,7 +63,7 @@
             if (!error && ([response statusCode] == 200)) {
                 _image = [UIImage imageWithData:imageData];
             }else{
-                _image = [UIImage imageNamed:@"image_not_available.jpg"];
+                _image = [UIImage imageNamed:@"image_not_available.png"];
             }
             dispatch_async(dispatch_get_main_queue(), ^{
                 businessImageView.hidden = NO;
@@ -91,7 +91,7 @@
             if (!error && ([response statusCode] == 200)) {
                 _ratingImage = [UIImage imageWithData:imageData];
             }else{
-                _ratingImage = [UIImage imageNamed:@"image_not_available_small.jpg"];
+                _ratingImage = [UIImage imageNamed:@"image_not_available_small.png"];
             }
             dispatch_async(dispatch_get_main_queue(), ^{
                 ratingImageView.hidden = NO;
