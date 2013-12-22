@@ -230,16 +230,6 @@
     return YES;
 }
 
-/*
--(void)motionEnded:(UIEventSubtype)motion withEvent:(UIEvent *)event{
-    if (motion == UIEventSubtypeMotionShake) {
-        NSLog(@"Shake ended");
-        AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
-        [self updateViewWhileFetchingRecommendation];
-        [self.recommender fetchRandomRecommendation];
-    }
-}
-*/
 
 -(void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event{
     if (motion == UIEventSubtypeMotionShake) {
