@@ -236,7 +236,6 @@
         [NSJSONSerialization JSONObjectWithData:self.requestResponseData
                                         options:kNilOptions
                                           error:&jsonParsingError];
-        //NSLog(@"%@", [NSString stringWithUTF8String:[self.requestResponseData bytes]]);
         if (!jsonParsingError) {
             [self populateRecommendationsFromJSON:deserializedRequestResponseData];
             [self respondToDelegateWithRecommendation:[self dequeueRecommendation]];
