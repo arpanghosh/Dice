@@ -25,7 +25,6 @@
                      stringByReplacingOccurrencesOfString:@"ms.jpg" withString:@"l.jpg"];
         _image = nil;
         _yelpURL = [recommendation valueForKey:@"mobile_url"];
-        _phone = [recommendation valueForKey:@"display_phone"];
         _reviewCount = [[recommendation valueForKey:@"review_count"] integerValue];
         _distanceInMiles =
         [[recommendation valueForKey:@"review_count"] doubleValue] * 0.000621371;
@@ -33,8 +32,6 @@
         _ratingImage = nil;
         _snippet = [[[recommendation valueForKey:@"snippet_text"] stringByReplacingOccurrencesOfString:@"\n" withString:@""]stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]];
         _streetAddress = [[[recommendation valueForKey:@"location"] valueForKey:@"address"] firstObject] != nil ? [[[recommendation valueForKey:@"location"] valueForKey:@"address"] firstObject] : @"";
-        _crossStreet = [[recommendation valueForKey:@"location"] valueForKey:@"cross_streets"] != nil ? [[recommendation valueForKey:@"location"] valueForKey:@"cross_streets"] : @"";
-        
         
         NSMutableArray *categoryList = [[NSMutableArray alloc] init];
         for (NSArray *categoryTuple in [recommendation valueForKey:@"categories"]) {
@@ -106,9 +103,5 @@
     }
 }
 
-
--(NSString *)description{
-    return self.snippet;
-}
 
 @end

@@ -21,12 +21,12 @@
 @property (weak, nonatomic) IBOutlet UILabel *recommendationBusinessSnippet;
 @property (weak, nonatomic) IBOutlet UILabel *recommendationBusinessDistance;
 @property (weak, nonatomic) IBOutlet UILabel *recommendationBusinessStreetAddress;
-@property (weak, nonatomic) IBOutlet UILabel *recommendationBusinessCrossStreet;
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingRecommendation;
 @property (weak, nonatomic) IBOutlet UILabel *loadingRecommendationMessage;
 @property (weak, nonatomic) IBOutlet UILabel *recommendationError;
 @property (weak, nonatomic) IBOutlet UIView *tutorialView;
 @property (weak, nonatomic) IBOutlet UIButton *cancelTutorialView;
+@property (weak, nonatomic) SampleAppViewControllerMainView *mainView;
 
 @property (strong, nonatomic) UITapGestureRecognizer *imageTapGestureRecognizer;
 @property (strong, nonatomic) UITapGestureRecognizer *snippetTapGestureRecognizer;
@@ -202,9 +202,6 @@
         self.recommendationBusinessStreetAddress.text = self.randomRecommendation.streetAddress;
         self.recommendationBusinessStreetAddress.hidden = NO;
         
-        self.recommendationBusinessCrossStreet.text = self.randomRecommendation.crossStreet;
-        self.recommendationBusinessCrossStreet.hidden = NO;
-        
         [self.randomRecommendation downloadBusinessImageIfRequiredAndDisplayInImageView:self.recommendationBusinessImage];
         [self.randomRecommendation downloadRatingImageIfRequiredAndDisplayInImageView:self.recommendationBusinessRatingImage];
     });
@@ -218,7 +215,6 @@
     self.recommendationBusinessSnippet.hidden = YES;
     self.recommendationBusinessDistance.hidden = YES;
     self.recommendationBusinessStreetAddress.hidden = YES;
-    self.recommendationBusinessCrossStreet.hidden = YES;
     self.recommendationBusinessImage.hidden = YES;
     self.recommendationBusinessRatingImage.hidden = YES;
     self.recommendationError.hidden = YES;
@@ -235,14 +231,14 @@
 // Methods to handle the device's 'shake' motion
 /**************************************************************************************************************/
 
-- (BOOL)canBecomeFirstResponder {
-    return YES;
-}
-
-
 -(void)shakeDetected{
     [self updateViewWhileFetchingRecommendation];
     [self.recommender fetchRandomRecommendation];
+}
+
+
+-(SampleAppViewControllerMainView *)mainView{
+    return (SampleAppViewControllerMainView *)self.view;
 }
 
 
@@ -259,15 +255,13 @@
 
 
 -(void)viewWillAppear:(BOOL)animated{
-    SampleAppViewControllerMainView *mainView = (SampleAppViewControllerMainView *)self.view;
-    mainView.delegate = self;
-    [mainView becomeFirstResponder];
+    self.mainView.delegate = self;
+    [self.mainView becomeFirstResponder];
 }
 
 
 -(void)viewWillDisappear:(BOOL)animated{
-    SampleAppViewControllerMainView *mainView = (SampleAppViewControllerMainView *)self.view;
-    [mainView resignFirstResponder];
+    [self.mainView resignFirstResponder];
 }
 
 
@@ -275,10 +269,10 @@
 -(void)initialize{
     self.isFirstAppLaunch = [self firstAppLaunch];
     
-    [self becomeFirstResponder];
     [self initializeGestureRecognizers];
     [self initializeUIElements];
     
+    //Fetch the first recommendation
     [self updateViewWhileFetchingRecommendation];
     [self.recommender fetchRandomRecommendation];
 }
@@ -303,10 +297,7 @@
 
 
 -(BOOL)firstAppLaunch{
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"HasLaunchedOnce"])
-    {
-        return NO;
-    }
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"HasLaunchedOnce"]){ return NO; }
     else
     {
         [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"HasLaunchedOnce"];

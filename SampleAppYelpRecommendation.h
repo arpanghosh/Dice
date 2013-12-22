@@ -15,7 +15,6 @@
 @property (nonatomic, strong, readonly) NSString* imageURL;
 @property (nonatomic, strong) UIImage* image;
 @property (nonatomic, strong, readonly) NSString* yelpURL;
-@property (nonatomic, strong, readonly) NSString* phone;
 @property (nonatomic, readonly) NSInteger reviewCount;
 @property (nonatomic, strong, readonly) NSString* categories;
 @property (nonatomic, readonly) double distanceInMiles;
@@ -23,7 +22,6 @@
 @property (nonatomic, strong) UIImage* ratingImage;
 @property (nonatomic, readonly, readonly) NSString* fullAddress;
 @property (nonatomic, strong, readonly) NSString* streetAddress;
-@property (nonatomic, strong, readonly) NSString* crossStreet;
 @property (nonatomic, strong, readonly) NSString* snippet;
 
 

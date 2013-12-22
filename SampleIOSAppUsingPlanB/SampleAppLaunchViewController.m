@@ -11,14 +11,12 @@
 
 @interface SampleAppLaunchViewController ()
 
+@property (nonatomic, weak) SampleAppViewControllerMainView *mainView;
+
 @end
 
 
 @implementation SampleAppLaunchViewController
-
-
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-}
 
 
 - (void)viewDidLoad
@@ -27,16 +25,19 @@
 }
 
 
+-(SampleAppViewControllerMainView *)mainView{
+    return (SampleAppViewControllerMainView *)self.view;
+}
+
+
 -(void)viewWillAppear:(BOOL)animated{
-    SampleAppViewControllerMainView *mainView = (SampleAppViewControllerMainView *)self.view;
-    mainView.delegate = self;
-    [mainView becomeFirstResponder];
+    self.mainView.delegate = self;
+    [self.mainView becomeFirstResponder];
 }
 
 
 -(void)viewWillDisappear:(BOOL)animated{
-    SampleAppViewControllerMainView *mainView = (SampleAppViewControllerMainView *)self.view;
-    [mainView resignFirstResponder];
+    [self.mainView resignFirstResponder];
 }
 
 
