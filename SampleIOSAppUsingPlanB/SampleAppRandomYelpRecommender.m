@@ -140,7 +140,6 @@
         OAMutableURLRequest *yelpAPIRequest = [self generateYelpAPIRequestBasedOnCurrentLocation];
         [yelpAPIRequest prepare];
         self.requestState = YelpRequestStateStarted;
-        NSLog(@"Made a Yelp API request");
         [NSURLConnection connectionWithRequest:yelpAPIRequest delegate:self];
     }
 }
