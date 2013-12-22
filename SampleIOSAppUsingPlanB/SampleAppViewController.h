@@ -9,10 +9,12 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import <AudioToolbox/AudioServices.h>
+#import <QuartzCore/QuartzCore.h>
 
 #import "SampleAppRandomYelpRecommender.h"
+#import "SampleAppViewControllerMainView.h"
 
 
-@interface SampleAppViewController : UIViewController <SampleAppRandomYelpRecommenderDelegate>
+@interface SampleAppViewController : UIViewController <SampleAppRandomYelpRecommenderDelegate, SampleAppViewControllerMainViewDelegate>
 
 @end

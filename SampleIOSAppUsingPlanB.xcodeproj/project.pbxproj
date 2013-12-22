@@ -15,6 +15,9 @@
 		8158DA1F186681E60082F8AB /* fork.png in Resources */ = {isa = PBXBuildFile; fileRef = 8158DA1E186681E60082F8AB /* fork.png */; };
 		817089C81866B16500DBD710 /* table-launch-480.png in Resources */ = {isa = PBXBuildFile; fileRef = 817089C71866B16500DBD710 /* table-launch-480.png */; };
 		81A1E9121866DE4F00ACCE4A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81A1E9111866DE4F00ACCE4A /* AudioToolbox.framework */; };
+		81A1E9151866F83700ACCE4A /* SampleAppViewControllerMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A1E9141866F83700ACCE4A /* SampleAppViewControllerMainView.m */; };
+		81A5B9FD186796C100C36B4E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81A5B9FC186796C100C36B4E /* QuartzCore.framework */; };
+		81A5B9FF18679CCE00C36B4E /* cancel-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 81A5B9FE18679CCE00C36B4E /* cancel-button.png */; };
 		81B8DDA3186157D80093CC04 /* SampleAppYelpRecommendation.m in Sources */ = {isa = PBXBuildFile; fileRef = 81B8DDA2186157D80093CC04 /* SampleAppYelpRecommendation.m */; };
 		81B9CF211860FD7D00F9646C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81B9CF201860FD7D00F9646C /* Foundation.framework */; };
 		81B9CF231860FD7D00F9646C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81B9CF221860FD7D00F9646C /* CoreGraphics.framework */; };
@@ -99,6 +102,10 @@
 		8158DA1E186681E60082F8AB /* fork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fork.png; path = Images.xcassets/fork.png; sourceTree = "<group>"; };
 		817089C71866B16500DBD710 /* table-launch-480.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "table-launch-480.png"; path = "Images.xcassets/table-launch-480.png"; sourceTree = "<group>"; };
 		81A1E9111866DE4F00ACCE4A /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		81A1E9131866F83700ACCE4A /* SampleAppViewControllerMainView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleAppViewControllerMainView.h; sourceTree = "<group>"; };
+		81A1E9141866F83700ACCE4A /* SampleAppViewControllerMainView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleAppViewControllerMainView.m; sourceTree = "<group>"; };
+		81A5B9FC186796C100C36B4E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		81A5B9FE18679CCE00C36B4E /* cancel-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cancel-button.png"; path = "Images.xcassets/cancel-button.png"; sourceTree = "<group>"; };
 		81B8DDA1186157D80093CC04 /* SampleAppYelpRecommendation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SampleAppYelpRecommendation.h; path = ../SampleAppYelpRecommendation.h; sourceTree = "<group>"; };
 		81B8DDA2186157D80093CC04 /* SampleAppYelpRecommendation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SampleAppYelpRecommendation.m; path = ../SampleAppYelpRecommendation.m; sourceTree = "<group>"; };
 		81B8DDAB1863011A0093CC04 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
@@ -177,6 +184,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81A5B9FD186796C100C36B4E /* QuartzCore.framework in Frameworks */,
 				81A1E9121866DE4F00ACCE4A /* AudioToolbox.framework in Frameworks */,
 				81B9CF5D1860FDFB00F9646C /* libxml2.dylib in Frameworks */,
 				81B9CF5B1860FDEA00F9646C /* Security.framework in Frameworks */,
@@ -218,13 +226,15 @@
 			name = Delegates;
 			sourceTree = "<group>";
 		};
-		810F7C7D18640CD00058769E /* Storyboards */ = {
+		810F7C7D18640CD00058769E /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				81B9CF321860FD7D00F9646C /* Main_iPhone.storyboard */,
 				81B9CF351860FD7D00F9646C /* Main_iPad.storyboard */,
+				81A1E9131866F83700ACCE4A /* SampleAppViewControllerMainView.h */,
+				81A1E9141866F83700ACCE4A /* SampleAppViewControllerMainView.m */,
 			);
-			name = Storyboards;
+			name = Views;
 			sourceTree = "<group>";
 		};
 		810F7C7E18640CDF0058769E /* Controllers */ = {
@@ -241,6 +251,7 @@
 		81B8DDA6186190B30093CC04 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				81A5B9FE18679CCE00C36B4E /* cancel-button.png */,
 				81EBAAD71866D72E0085B1A7 /* image_not_available.png */,
 				81EBAAD51866D7260085B1A7 /* image_not_available_small.png */,
 				81EBAAD31866D56C0085B1A7 /* icon-launch.png */,
@@ -278,6 +289,7 @@
 		81B9CF1F1860FD7D00F9646C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				81A5B9FC186796C100C36B4E /* QuartzCore.framework */,
 				81A1E9111866DE4F00ACCE4A /* AudioToolbox.framework */,
 				81B8DDAB1863011A0093CC04 /* iAd.framework */,
 				81B9CF5E1860FED300F9646C /* ios-oauthconsumer */,
@@ -296,7 +308,7 @@
 			isa = PBXGroup;
 			children = (
 				810F7C7E18640CDF0058769E /* Controllers */,
-				810F7C7D18640CD00058769E /* Storyboards */,
+				810F7C7D18640CD00058769E /* Views */,
 				810F7C7C18640CAB0058769E /* Delegates */,
 				810F7C7B18640C930058769E /* Models */,
 				81B9CF3B1860FD7D00F9646C /* Images.xcassets */,
@@ -481,6 +493,7 @@
 				8158DA1318665BCF0082F8AB /* napkin.png in Resources */,
 				81EBAAD61866D7260085B1A7 /* image_not_available_small.png in Resources */,
 				81B9CF371860FD7D00F9646C /* Main_iPad.storyboard in Resources */,
+				81A5B9FF18679CCE00C36B4E /* cancel-button.png in Resources */,
 				8158DA0F186656190082F8AB /* plate-long.png in Resources */,
 				8158DA1F186681E60082F8AB /* fork.png in Resources */,
 				81B9CF3C1860FD7D00F9646C /* Images.xcassets in Resources */,
@@ -511,6 +524,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81A1E9151866F83700ACCE4A /* SampleAppViewControllerMainView.m in Sources */,
 				81B9CF911860FED300F9646C /* hmac.c in Sources */,
 				81B9CFAB1860FED300F9646C /* OAToken.m in Sources */,
 				81B9CF9D1860FED300F9646C /* OAHMAC_SHA1SignatureProvider.m in Sources */,

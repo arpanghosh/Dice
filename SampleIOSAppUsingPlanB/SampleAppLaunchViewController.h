@@ -10,7 +10,8 @@
 #import <AudioToolbox/AudioServices.h>
 
 #import "SampleAppViewController.h"
+#import "SampleAppViewControllerMainView.h"
 
-@interface SampleAppLaunchViewController : UIViewController
+@interface SampleAppLaunchViewController : UIViewController <SampleAppViewControllerMainViewDelegate>
 
 @end

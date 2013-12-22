@@ -21,24 +21,27 @@
 }
 
 
-- (BOOL)canBecomeFirstResponder {
-    return YES;
-}
-
-
--(void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event{
-    if (motion == UIEventSubtypeMotionShake) {
-        AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
-        [self performSegueWithIdentifier:@"LAUNCH_TO_MAIN" sender:self];
-    }
-}
-
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	
-    [self becomeFirstResponder];
+}
+
+
+-(void)viewWillAppear:(BOOL)animated{
+    SampleAppViewControllerMainView *mainView = (SampleAppViewControllerMainView *)self.view;
+    mainView.delegate = self;
+    [mainView becomeFirstResponder];
+}
+
+
+-(void)viewWillDisappear:(BOOL)animated{
+    SampleAppViewControllerMainView *mainView = (SampleAppViewControllerMainView *)self.view;
+    [mainView resignFirstResponder];
+}
+
+
+-(void)shakeDetected{
+   [self performSegueWithIdentifier:@"LAUNCH_TO_MAIN" sender:self];
 }
 
 

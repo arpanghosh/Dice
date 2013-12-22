@@ -25,6 +25,8 @@
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *loadingRecommendation;
 @property (weak, nonatomic) IBOutlet UILabel *loadingRecommendationMessage;
 @property (weak, nonatomic) IBOutlet UILabel *recommendationError;
+@property (weak, nonatomic) IBOutlet UIView *tutorialView;
+@property (weak, nonatomic) IBOutlet UIButton *cancelTutorialView;
 
 @property (strong, nonatomic) UITapGestureRecognizer *imageTapGestureRecognizer;
 @property (strong, nonatomic) UITapGestureRecognizer *snippetTapGestureRecognizer;
@@ -32,6 +34,8 @@
 @property (strong, nonatomic) CLGeocoder *geocoder;
 
 @property (strong, nonatomic) SampleAppYelpRecommendation *randomRecommendation;
+
+@property (nonatomic) BOOL isFirstAppLaunch;
 
 @end
 
@@ -130,6 +134,11 @@
 - (void)didGenerateARandomRecommendation:(SampleAppYelpRecommendation *)randomRecommendation{
     self.randomRecommendation = randomRecommendation;
     if (self.randomRecommendation) {
+        if (self.isFirstAppLaunch) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.tutorialView setHidden:NO];
+            });
+        }
         [self updateViewWithValidRecommendation];
     }else{
         [self updateViewInCaseOfNoRecommendation];
@@ -231,12 +240,9 @@
 }
 
 
--(void)motionBegan:(UIEventSubtype)motion withEvent:(UIEvent *)event{
-    if (motion == UIEventSubtypeMotionShake) {
-        AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
-        [self updateViewWhileFetchingRecommendation];
-        [self.recommender fetchRandomRecommendation];
-    }
+-(void)shakeDetected{
+    [self updateViewWhileFetchingRecommendation];
+    [self.recommender fetchRandomRecommendation];
 }
 
 
@@ -252,8 +258,23 @@
 }
 
 
+-(void)viewWillAppear:(BOOL)animated{
+    SampleAppViewControllerMainView *mainView = (SampleAppViewControllerMainView *)self.view;
+    mainView.delegate = self;
+    [mainView becomeFirstResponder];
+}
+
+
+-(void)viewWillDisappear:(BOOL)animated{
+    SampleAppViewControllerMainView *mainView = (SampleAppViewControllerMainView *)self.view;
+    [mainView resignFirstResponder];
+}
+
+
 // Initialize everything for this ViewController
 -(void)initialize{
+    self.isFirstAppLaunch = [self firstAppLaunch];
+    
     [self becomeFirstResponder];
     [self initializeGestureRecognizers];
     [self initializeUIElements];
@@ -264,9 +285,13 @@
 
 
 -(void)initializeUIElements{
-    self.recommendationBusinessReviewCount.layer.cornerRadius = 4;
-    self.recommendationBusinessStreetAddress.layer.cornerRadius = 4;
-    self.recommendationBusinessDistance.layer.cornerRadius = 4;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.recommendationBusinessReviewCount.layer.cornerRadius = 4;
+        self.recommendationBusinessStreetAddress.layer.cornerRadius = 4;
+        self.recommendationBusinessDistance.layer.cornerRadius = 4;
+        
+        [self.tutorialView setHidden:YES];
+    });
 }
 
 
@@ -274,6 +299,28 @@
     [self.recommendationBusinessImage addGestureRecognizer:self.imageTapGestureRecognizer];
     [self.recommendationBusinessSnippet addGestureRecognizer:self.snippetTapGestureRecognizer];
     [self.recommendationBusinessStreetAddress addGestureRecognizer:self.addressTapGestureRecognizer];
+}
+
+
+-(BOOL)firstAppLaunch{
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"HasLaunchedOnce"])
+    {
+        return NO;
+    }
+    else
+    {
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"HasLaunchedOnce"];
+        [[NSUserDefaults standardUserDefaults] synchronize];
+        return YES;
+    }
+}
+
+
+- (IBAction)tutorialViewCancelled {
+    self.isFirstAppLaunch = NO;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.tutorialView removeFromSuperview];
+    });
 }
 
 
