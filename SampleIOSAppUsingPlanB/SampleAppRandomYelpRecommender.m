@@ -129,7 +129,7 @@
 
 -(NSURL *)yelpAPIURLWithCurrentLocation{
     NSString *URLString =
-    [NSString stringWithFormat:@"http://api.yelp.com/v2/search?term=restaurants&ll=%f,%f&radius_filter=3219&offset=%d",
+    [NSString stringWithFormat:@"http://api.yelp.com/v2/search?term=restaurants&ll=%f,%f&radius_filter=3219&offset=%d&limit=20",
      self.latestLocation.coordinate.latitude, self.latestLocation.coordinate.longitude, self.offset];
     return [[NSURL alloc] initWithString:URLString];
 }
