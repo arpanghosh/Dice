@@ -6,7 +6,6 @@
 //  Copyright (c) 2013 Plan B. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 
 @interface SampleAppYelpRecommendation : NSObject
 

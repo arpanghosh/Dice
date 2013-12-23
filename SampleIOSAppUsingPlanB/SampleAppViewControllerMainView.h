@@ -6,7 +6,6 @@
 //  Copyright (c) 2013 Plan B. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import <AudioToolbox/AudioServices.h>
 
 @protocol SampleAppViewControllerMainViewDelegate

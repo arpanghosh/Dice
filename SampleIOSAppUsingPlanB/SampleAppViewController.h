@@ -6,9 +6,7 @@
 //  Copyright (c) 2013 Plan B. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
-#import <AudioToolbox/AudioServices.h>
 #import <QuartzCore/QuartzCore.h>
 
 #import "SampleAppRandomYelpRecommender.h"

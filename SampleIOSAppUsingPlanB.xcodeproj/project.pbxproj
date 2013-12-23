@@ -490,14 +490,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8158DA1318665BCF0082F8AB /* napkin.png in Resources */,
-				81EBAAD61866D7260085B1A7 /* image_not_available_small.png in Resources */,
 				81B9CF371860FD7D00F9646C /* Main_iPad.storyboard in Resources */,
-				81A5B9FF18679CCE00C36B4E /* cancel-button.png in Resources */,
-				8158DA0F186656190082F8AB /* plate-long.png in Resources */,
-				8158DA1F186681E60082F8AB /* fork.png in Resources */,
-				81B9CF3C1860FD7D00F9646C /* Images.xcassets in Resources */,
 				81B9CF341860FD7D00F9646C /* Main_iPhone.storyboard in Resources */,
+				81B9CF3C1860FD7D00F9646C /* Images.xcassets in Resources */,
+				8158DA1F186681E60082F8AB /* fork.png in Resources */,
+				8158DA0F186656190082F8AB /* plate-long.png in Resources */,
+				81A5B9FF18679CCE00C36B4E /* cancel-button.png in Resources */,
+				81EBAAD61866D7260085B1A7 /* image_not_available_small.png in Resources */,
+				8158DA1318665BCF0082F8AB /* napkin.png in Resources */,
 				81EBAAD41866D56C0085B1A7 /* icon-launch.png in Resources */,
 				81EBAAD21866CEE50085B1A7 /* chopstick-over.png in Resources */,
 				8158DA1B18666AE10082F8AB /* three-dish.png in Resources */,
@@ -524,7 +524,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				810F7C771863BBFC0058769E /* SampleAppLaunchViewController.m in Sources */,
+				81B9CF3A1860FD7D00F9646C /* SampleAppViewController.m in Sources */,
 				81A1E9151866F83700ACCE4A /* SampleAppViewControllerMainView.m in Sources */,
+				81B9CFB3186104DA00F9646C /* SampleAppRandomYelpRecommender.m in Sources */,
+				81A5BA02186825E800C36B4E /* SampleAppYelpRecommendation.m in Sources */,
+				81B9CF311860FD7D00F9646C /* SampleAppAppDelegate.m in Sources */,
 				81B9CF911860FED300F9646C /* hmac.c in Sources */,
 				81B9CFAB1860FED300F9646C /* OAToken.m in Sources */,
 				81B9CF9D1860FED300F9646C /* OAHMAC_SHA1SignatureProvider.m in Sources */,
@@ -532,11 +537,8 @@
 				81B9CF8B1860FED300F9646C /* NSString+URLEncoding.m in Sources */,
 				81B9CFA31860FED300F9646C /* OAProblem.m in Sources */,
 				81B9CFAD1860FED300F9646C /* OATokenManager.m in Sources */,
-				810F7C771863BBFC0058769E /* SampleAppLaunchViewController.m in Sources */,
 				81B9CF991860FED300F9646C /* OAConsumer.m in Sources */,
 				81B9CF931860FED300F9646C /* sha1.c in Sources */,
-				81B9CFB3186104DA00F9646C /* SampleAppRandomYelpRecommender.m in Sources */,
-				81A5BA02186825E800C36B4E /* SampleAppYelpRecommendation.m in Sources */,
 				81B9CFA51860FED300F9646C /* OARequestParameter.m in Sources */,
 				81B9CF971860FED300F9646C /* OACall.m in Sources */,
 				81B9CF951860FED300F9646C /* OAAttachment.m in Sources */,
@@ -547,8 +549,6 @@
 				81B9CF2D1860FD7D00F9646C /* main.m in Sources */,
 				81B9CF8D1860FED300F9646C /* NSURL+Base.m in Sources */,
 				81B9CFA11860FED300F9646C /* OAPlaintextSignatureProvider.m in Sources */,
-				81B9CF311860FD7D00F9646C /* SampleAppAppDelegate.m in Sources */,
-				81B9CF3A1860FD7D00F9646C /* SampleAppViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -708,6 +708,11 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SampleIOSAppUsingPlanB/SampleIOSAppUsingPlanB-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SDKROOT)/usr/include/libxml2/**",
+				);
 				INFOPLIST_FILE = "SampleIOSAppUsingPlanB/SampleIOSAppUsingPlanB-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -726,6 +731,11 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SampleIOSAppUsingPlanB/SampleIOSAppUsingPlanB-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(SDKROOT)/usr/include/libxml2/**",
+				);
 				INFOPLIST_FILE = "SampleIOSAppUsingPlanB/SampleIOSAppUsingPlanB-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
