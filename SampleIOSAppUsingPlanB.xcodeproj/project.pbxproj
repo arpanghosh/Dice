@@ -18,7 +18,7 @@
 		81A1E9151866F83700ACCE4A /* SampleAppViewControllerMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A1E9141866F83700ACCE4A /* SampleAppViewControllerMainView.m */; };
 		81A5B9FD186796C100C36B4E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81A5B9FC186796C100C36B4E /* QuartzCore.framework */; };
 		81A5B9FF18679CCE00C36B4E /* cancel-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 81A5B9FE18679CCE00C36B4E /* cancel-button.png */; };
-		81B8DDA3186157D80093CC04 /* SampleAppYelpRecommendation.m in Sources */ = {isa = PBXBuildFile; fileRef = 81B8DDA2186157D80093CC04 /* SampleAppYelpRecommendation.m */; };
+		81A5BA02186825E800C36B4E /* SampleAppYelpRecommendation.m in Sources */ = {isa = PBXBuildFile; fileRef = 81A5BA01186825E800C36B4E /* SampleAppYelpRecommendation.m */; };
 		81B9CF211860FD7D00F9646C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81B9CF201860FD7D00F9646C /* Foundation.framework */; };
 		81B9CF231860FD7D00F9646C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81B9CF221860FD7D00F9646C /* CoreGraphics.framework */; };
 		81B9CF251860FD7D00F9646C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81B9CF241860FD7D00F9646C /* UIKit.framework */; };
@@ -106,8 +106,8 @@
 		81A1E9141866F83700ACCE4A /* SampleAppViewControllerMainView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleAppViewControllerMainView.m; sourceTree = "<group>"; };
 		81A5B9FC186796C100C36B4E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		81A5B9FE18679CCE00C36B4E /* cancel-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cancel-button.png"; path = "Images.xcassets/cancel-button.png"; sourceTree = "<group>"; };
-		81B8DDA1186157D80093CC04 /* SampleAppYelpRecommendation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SampleAppYelpRecommendation.h; path = ../SampleAppYelpRecommendation.h; sourceTree = "<group>"; };
-		81B8DDA2186157D80093CC04 /* SampleAppYelpRecommendation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SampleAppYelpRecommendation.m; path = ../SampleAppYelpRecommendation.m; sourceTree = "<group>"; };
+		81A5BA00186825E800C36B4E /* SampleAppYelpRecommendation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleAppYelpRecommendation.h; sourceTree = "<group>"; };
+		81A5BA01186825E800C36B4E /* SampleAppYelpRecommendation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleAppYelpRecommendation.m; sourceTree = "<group>"; };
 		81B8DDAB1863011A0093CC04 /* iAd.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = iAd.framework; path = System/Library/Frameworks/iAd.framework; sourceTree = SDKROOT; };
 		81B9CF1D1860FD7D00F9646C /* SampleIOSAppUsingPlanB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleIOSAppUsingPlanB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81B9CF201860FD7D00F9646C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -213,8 +213,8 @@
 			children = (
 				81B9CFB1186104DA00F9646C /* SampleAppRandomYelpRecommender.h */,
 				81B9CFB2186104DA00F9646C /* SampleAppRandomYelpRecommender.m */,
-				81B8DDA1186157D80093CC04 /* SampleAppYelpRecommendation.h */,
-				81B8DDA2186157D80093CC04 /* SampleAppYelpRecommendation.m */,
+				81A5BA00186825E800C36B4E /* SampleAppYelpRecommendation.h */,
+				81A5BA01186825E800C36B4E /* SampleAppYelpRecommendation.m */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -536,12 +536,12 @@
 				81B9CF991860FED300F9646C /* OAConsumer.m in Sources */,
 				81B9CF931860FED300F9646C /* sha1.c in Sources */,
 				81B9CFB3186104DA00F9646C /* SampleAppRandomYelpRecommender.m in Sources */,
+				81A5BA02186825E800C36B4E /* SampleAppYelpRecommendation.m in Sources */,
 				81B9CFA51860FED300F9646C /* OARequestParameter.m in Sources */,
 				81B9CF971860FED300F9646C /* OACall.m in Sources */,
 				81B9CF951860FED300F9646C /* OAAttachment.m in Sources */,
 				81B9CFA71860FED300F9646C /* OAServiceTicket.m in Sources */,
 				81B9CF9F1860FED300F9646C /* OAMutableURLRequest.m in Sources */,
-				81B8DDA3186157D80093CC04 /* SampleAppYelpRecommendation.m in Sources */,
 				81B9CF9B1860FED300F9646C /* OADataFetcher.m in Sources */,
 				81B9CF891860FED300F9646C /* NSMutableURLRequest+Parameters.m in Sources */,
 				81B9CF2D1860FD7D00F9646C /* main.m in Sources */,
