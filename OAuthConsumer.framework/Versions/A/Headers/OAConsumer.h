@@ -1,5 +1,5 @@
 //
-//  OAPlaintextSignatureProvider.h
+//  OAConsumer.h
 //  OAuthConsumer
 //
 //  Created by Jon Crosby on 10/19/07.
@@ -24,8 +24,16 @@
 //  THE SOFTWARE.
 
 
-#import <Foundation/Foundation.h>
-#import "OASignatureProviding.h"
 
-@interface OAPlaintextSignatureProvider : NSObject <OASignatureProviding>
+
+@interface OAConsumer : NSObject {
+@protected
+	NSString *key;
+	NSString *secret;
+}
+@property(retain) NSString *key;
+@property(retain) NSString *secret;
+
+- (id)initWithKey:(NSString *)aKey secret:(NSString *)aSecret;
+
 @end

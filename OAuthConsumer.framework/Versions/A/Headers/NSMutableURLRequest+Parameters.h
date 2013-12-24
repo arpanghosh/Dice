@@ -1,6 +1,5 @@
 //
-//  OAConsumer.m
-//  OAuthConsumer
+//  NSMutableURLRequest+Parameters.h
 //
 //  Created by Jon Crosby on 10/19/07.
 //  Copyright 2007 Kaboomerang LLC. All rights reserved.
@@ -23,38 +22,13 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-#import "OAConsumer.h"
+#import "OARequestParameter.h"
+#import "NSURL+Base.h"
 
 
-@implementation OAConsumer
-@synthesize key, secret;
+@interface NSMutableURLRequest (OAParameterAdditions)
 
-#pragma mark init
-
-- (id)initWithKey:(NSString *)aKey secret:(NSString *)aSecret {
-	if ((self = [super init])) {
-		self.key = aKey;
-		self.secret = aSecret;
-	}
-	return self;
-}
-
-- (void)dealloc {
-	[key release];
-	[secret release];
-	[super dealloc];
-}
-
-- (BOOL)isEqual:(id)object {
-	if ([object isKindOfClass:[self class]]) {
-		return [self isEqualToConsumer:(OAConsumer*)object];
-	}
-	return NO;
-}
-
-- (BOOL)isEqualToConsumer:(OAConsumer *)aConsumer {
-	return ([self.key isEqualToString:aConsumer.key] &&
-			[self.secret isEqualToString:aConsumer.secret]);
-}
+- (NSArray *)parameters;
+- (void)setParameters:(NSArray *)parameters;
 
 @end

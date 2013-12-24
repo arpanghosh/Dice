@@ -1,8 +1,8 @@
 //
-//  NSURL+Base.m
+//  OAServiceTicket.h
 //  OAuthConsumer
 //
-//  Created by Jon Crosby on 10/19/07.
+//  Created by Jon Crosby on 11/5/07.
 //  Copyright 2007 Kaboomerang LLC. All rights reserved.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -24,14 +24,19 @@
 //  THE SOFTWARE.
 
 
-#import "NSURL+Base.h"
+#import "OAMutableURLRequest.h"
 
 
-@implementation NSURL (OABaseAdditions)
-
-- (NSString *)oa_URLStringWithoutQuery {
-    NSArray *parts = [[self absoluteString] componentsSeparatedByString:@"?"];
-    return [parts objectAtIndex:0];
+@interface OAServiceTicket : NSObject {
+@private
+    OAMutableURLRequest *request;
+    NSURLResponse *response;
+    BOOL didSucceed;
 }
+@property(retain) OAMutableURLRequest *request;
+@property(retain) NSURLResponse *response;
+@property(assign) BOOL didSucceed;
+
+- (id)initWithRequest:(OAMutableURLRequest *)aRequest response:(NSURLResponse *)aResponse didSucceed:(BOOL)success;
 
 @end

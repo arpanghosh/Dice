@@ -1,5 +1,6 @@
 //
-//  NSString+URLEncoding.h
+//  OAuthConsumer.h
+//  OAuthConsumer
 //
 //  Created by Jon Crosby on 10/19/07.
 //  Copyright 2007 Kaboomerang LLC. All rights reserved.
@@ -22,14 +23,16 @@
 //  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 //  THE SOFTWARE.
 
-
-#import <Foundation/Foundation.h>
-
-
-@interface NSString (OAURLEncodingAdditions)
-
-- (NSString *)oa_encodedURLString;
-- (NSString *)oa_encodedURLParameterString;
-- (NSString *)oa_decodedURLString;
-- (NSString *)oa_removeQuotes;
-@end
+#import <OAuthConsumer/OAToken.h>
+#import <OAuthConsumer/OAConsumer.h>
+#import <OAuthConsumer/OAMutableURLRequest.h>
+#import <OAuthConsumer/NSString+URLEncoding.h>
+#import <OAuthConsumer/NSMutableURLRequest+Parameters.h>
+#import <OAuthConsumer/NSURL+Base.h>
+#import <OAuthConsumer/OASignatureProviding.h>
+#import <OAuthConsumer/OAHMAC_SHA1SignatureProvider.h>
+#import <OAuthConsumer/OAPlaintextSignatureProvider.h>
+#import <OAuthConsumer/OARequestParameter.h>
+#import <OAuthConsumer/OAServiceTicket.h>
+#import <OAuthConsumer/OADataFetcher.h>
+#import <OAuthConsumer/OAAsynchronousDataFetcher.h>

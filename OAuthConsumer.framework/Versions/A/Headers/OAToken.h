@@ -1,8 +1,8 @@
 //
-//  OAServiceTicket.m
+//  OAToken.h
 //  OAuthConsumer
 //
-//  Created by Jon Crosby on 11/5/07.
+//  Created by Jon Crosby on 10/19/07.
 //  Copyright 2007 Kaboomerang LLC. All rights reserved.
 //
 //  Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -24,36 +24,17 @@
 //  THE SOFTWARE.
 
 
-#import "OAServiceTicket.h"
-
-
-@implementation OAServiceTicket
-@synthesize request, response, data, didSucceed;
-
-- (id)initWithRequest:(OAMutableURLRequest *)aRequest response:(NSURLResponse *)aResponse data:(NSData *)aData didSucceed:(BOOL)success {
-    if ((self = [super init])) {
-		request = [aRequest retain];
-		response = [aResponse retain];
-		data = [aData retain];
-		didSucceed = success;
-	}
-    return self;
+@interface OAToken : NSObject {
+@protected
+	NSString *key;
+	NSString *secret;
 }
+@property(retain) NSString *key;
+@property(retain) NSString *secret;
 
-- (void)dealloc {
-	[request release];
-	[response release];
-	[data release];
-	[super dealloc];
-}
-
-- (NSString *)body
-{
-	if (!data) {
-		return nil;
-	}
-	
-	return [[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding] autorelease];
-}
+- (id)initWithKey:(NSString *)aKey secret:(NSString *)aSecret;
+- (id)initWithUserDefaultsUsingServiceProviderName:(NSString *)provider prefix:(NSString *)prefix;
+- (id)initWithHTTPResponseBody:(NSString *)body;
+- (int)storeInUserDefaultsWithServiceProviderName:(NSString *)provider prefix:(NSString *)prefix;
 
 @end

@@ -1,5 +1,5 @@
 //
-//  OARequestParameter.m
+//  OAMutableURLRequest.h
 //  OAuthConsumer
 //
 //  Created by Jon Crosby on 10/19/07.
@@ -24,57 +24,44 @@
 //  THE SOFTWARE.
 
 
-#import "OARequestParameter.h"
+#import "OAConsumer.h"
+#import "OAToken.h"
+#import "OAHMAC_SHA1SignatureProvider.h"
+#import "OASignatureProviding.h"
+#import "NSMutableURLRequest+Parameters.h"
+#import "NSURL+Base.h"
 
 
-@implementation OARequestParameter
-@synthesize name, value;
-
-- (id)initWithName:(NSString *)aName value:(NSString *)aValue {
-    if ((self = [super init])) {
-		self.name = aName;
-		self.value = aValue;
-	}
-    return self;
+@interface OAMutableURLRequest : NSMutableURLRequest {
+@protected
+    OAConsumer *consumer;
+    OAToken *token;
+    NSString *realm;
+    NSString *signature;
+    id<OASignatureProviding> signatureProvider;
+    NSString *nonce;
+    NSString *timestamp;
+	NSMutableDictionary *extraOAuthParameters;
 }
+@property(readonly) NSString *signature;
+@property(readonly) NSString *nonce;
 
-- (void)dealloc
-{
-	[name release];
-	[value release];
-	[super dealloc];
-}
+- (id)initWithURL:(NSURL *)aUrl
+		 consumer:(OAConsumer *)aConsumer
+			token:(OAToken *)aToken
+            realm:(NSString *)aRealm
+signatureProvider:(id<OASignatureProviding, NSObject>)aProvider;
 
-- (NSString *)URLEncodedName {
-	return self.name;
-//    return [self.name oa_encodedURLParameterString];
-}
+- (id)initWithURL:(NSURL *)aUrl
+		 consumer:(OAConsumer *)aConsumer
+			token:(OAToken *)aToken
+            realm:(NSString *)aRealm
+signatureProvider:(id<OASignatureProviding, NSObject>)aProvider
+            nonce:(NSString *)aNonce
+        timestamp:(NSString *)aTimestamp;
 
-- (NSString *)URLEncodedValue {
-    return [self.value oa_encodedURLParameterString];
-}
+- (void)prepare;
 
-- (NSString *)URLEncodedNameValuePair {
-    return [NSString stringWithFormat:@"%@=%@", [self URLEncodedName], [self URLEncodedValue]];
-}
-
-- (BOOL)isEqual:(id)object {
-	if ([object isKindOfClass:[self class]]) {
-		return [self isEqualToRequestParameter:(OARequestParameter *)object];
-	}
-	
-	return NO;
-}
-
-- (BOOL)isEqualToRequestParameter:(OARequestParameter *)parameter {
-	return ([self.name isEqualToString:parameter.name] &&
-			[self.value isEqualToString:parameter.value]);
-}
-
-
-+ (id)requestParameter:(NSString *)aName value:(NSString *)aValue
-{
-	return [[[self alloc] initWithName:aName value:aValue] autorelease];
-}
+- (void)setOAuthParameterName:(NSString*)parameterName withValue:(NSString*)parameterValue;
 
 @end

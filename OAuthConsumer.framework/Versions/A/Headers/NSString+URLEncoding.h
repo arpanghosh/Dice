@@ -1,6 +1,5 @@
 //
-//  OAConsumer.h
-//  OAuthConsumer
+//  NSString+URLEncoding.h
 //
 //  Created by Jon Crosby on 10/19/07.
 //  Copyright 2007 Kaboomerang LLC. All rights reserved.
@@ -24,19 +23,11 @@
 //  THE SOFTWARE.
 
 
-#import <Foundation/Foundation.h>
 
 
-@interface OAConsumer : NSObject {
-@protected
-	NSString *key;
-	NSString *secret;
-}
-@property(copy, readwrite) NSString *key;
-@property(copy, readwrite) NSString *secret;
+@interface NSString (OAURLEncodingAdditions)
 
-- (id)initWithKey:(const NSString *)aKey secret:(const NSString *)aSecret;
-
-- (BOOL)isEqualToConsumer:(OAConsumer *)aConsumer;
+- (NSString *)URLEncodedString;
+- (NSString *)URLDecodedString;
 
 @end
