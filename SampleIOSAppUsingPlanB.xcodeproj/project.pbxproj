@@ -530,7 +530,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/arpanghosh/Developer/iOS/SampleIOSAppUsingPlanB,
+					"$(SRCROOT)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SampleIOSAppUsingPlanB/SampleIOSAppUsingPlanB-Prefix.pch";
@@ -557,7 +557,7 @@
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					/Users/arpanghosh/Developer/iOS/SampleIOSAppUsingPlanB,
+					"$(SRCROOT)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SampleIOSAppUsingPlanB/SampleIOSAppUsingPlanB-Prefix.pch";

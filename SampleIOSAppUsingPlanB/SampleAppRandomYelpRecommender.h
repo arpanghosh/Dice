@@ -8,7 +8,7 @@
 
 #import <CoreLocation/CoreLocation.h>
 #import <stdlib.h>   
-#import <OAuthConsumer/OAuthConsumer.h>  
+#import <OAuthConsumer/OAuthConsumer.h>
 
 #import "SampleAppYelpRecommendation.h"
 
