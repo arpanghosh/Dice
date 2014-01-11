@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "81B9CF1C1860FD7D00F9646C"
-               BuildableName = "SampleIOSAppUsingPlanB.app"
-               BlueprintName = "SampleIOSAppUsingPlanB"
-               ReferencedContainer = "container:SampleIOSAppUsingPlanB.xcodeproj">
+               BuildableName = "DemoIOSAppUsingCrumb.app"
+               BlueprintName = "DemoIOSAppUsingCrumb"
+               ReferencedContainer = "container:DemoIOSAppUsingCrumb.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "81B9CF401860FD7D00F9646C"
-               BuildableName = "SampleIOSAppUsingPlanBTests.xctest"
-               BlueprintName = "SampleIOSAppUsingPlanBTests"
-               ReferencedContainer = "container:SampleIOSAppUsingPlanB.xcodeproj">
+               BuildableName = "DemoIOSAppUsingCrumbTests.xctest"
+               BlueprintName = "DemoIOSAppUsingCrumbTests"
+               ReferencedContainer = "container:DemoIOSAppUsingCrumb.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -43,9 +43,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "81B9CF1C1860FD7D00F9646C"
-            BuildableName = "SampleIOSAppUsingPlanB.app"
-            BlueprintName = "SampleIOSAppUsingPlanB"
-            ReferencedContainer = "container:SampleIOSAppUsingPlanB.xcodeproj">
+            BuildableName = "DemoIOSAppUsingCrumb.app"
+            BlueprintName = "DemoIOSAppUsingCrumb"
+            ReferencedContainer = "container:DemoIOSAppUsingCrumb.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -62,9 +62,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "81B9CF1C1860FD7D00F9646C"
-            BuildableName = "SampleIOSAppUsingPlanB.app"
-            BlueprintName = "SampleIOSAppUsingPlanB"
-            ReferencedContainer = "container:SampleIOSAppUsingPlanB.xcodeproj">
+            BuildableName = "DemoIOSAppUsingCrumb.app"
+            BlueprintName = "DemoIOSAppUsingCrumb"
+            ReferencedContainer = "container:DemoIOSAppUsingCrumb.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -80,9 +80,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "81B9CF1C1860FD7D00F9646C"
-            BuildableName = "SampleIOSAppUsingPlanB.app"
-            BlueprintName = "SampleIOSAppUsingPlanB"
-            ReferencedContainer = "container:SampleIOSAppUsingPlanB.xcodeproj">
+            BuildableName = "DemoIOSAppUsingCrumb.app"
+            BlueprintName = "DemoIOSAppUsingCrumb"
+            ReferencedContainer = "container:DemoIOSAppUsingCrumb.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

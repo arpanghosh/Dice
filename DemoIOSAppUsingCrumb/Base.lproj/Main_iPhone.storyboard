@@ -4,15 +4,15 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
     </dependencies>
     <scenes>
-        <!--Sample App Launch View Controller-->
+        <!--Demo Crumb App Launch View Controller-->
         <scene sceneID="6I9-xh-gMt">
             <objects>
-                <viewController id="W7f-aT-NYl" customClass="SampleAppLaunchViewController" sceneMemberID="viewController">
+                <viewController id="W7f-aT-NYl" customClass="DemoCrumbAppLaunchViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="EVU-Zw-Gmw"/>
                         <viewControllerLayoutGuide type="bottom" id="mu6-Go-YAz"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="fEC-0j-s9L" customClass="SampleAppViewControllerMainView">
+                    <view key="view" contentMode="scaleToFill" id="fEC-0j-s9L" customClass="DemoCrumbAppMainViewControllerMainView">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
@@ -43,15 +43,15 @@
             </objects>
             <point key="canvasLocation" x="-197" y="120"/>
         </scene>
-        <!--Sample App View Controller-->
+        <!--Demo Crumb App Main View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="SampleAppViewController" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="DemoCrumbAppMainViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YEe-co-v1T"/>
                         <viewControllerLayoutGuide type="bottom" id="1C2-44-MvZ"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS" customClass="SampleAppViewControllerMainView">
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS" customClass="DemoCrumbAppMainViewControllerMainView">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>

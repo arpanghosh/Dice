@@ -1,14 +1,14 @@
 //
-//  SampleAppViewControllerMainView.m
+//  DemoCrumbAppMainViewControllerMainView.m
 //  SampleIOSAppUsingPlanB
 //
 //  Created by Arpan Ghosh on 12/22/13.
-//  Copyright (c) 2013 Plan B. All rights reserved.
+//  Copyright (c) 2014 Tracktor Beam. All rights reserved.
 //
 
-#import "SampleAppViewControllerMainView.h"
+#import "DemoCrumbAppMainViewControllerMainView.h"
 
-@implementation SampleAppViewControllerMainView
+@implementation DemoCrumbAppMainViewControllerMainView
 
 
 -(BOOL)canBecomeFirstResponder{

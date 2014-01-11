@@ -1,14 +1,14 @@
 //
-//  SampleAppAppDelegate.m
-//  SampleIOSAppUsingPlanB
+//  DemoCrumbAppAppDelegate.m
+//  DemoIOSAppUsingCrumb
 //
 //  Created by Arpan Ghosh on 12/17/13.
-//  Copyright (c) 2013 Plan B. All rights reserved.
+//  Copyright (c) 2014 Tracktor Beam. All rights reserved.
 //
 
-#import "SampleAppAppDelegate.h"
+#import "DemoCrumbAppAppDelegate.h"
 
-@implementation SampleAppAppDelegate
+@implementation DemoCrumbAppAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {

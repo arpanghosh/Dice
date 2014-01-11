@@ -1,22 +1,22 @@
 //
-//  SampleAppLaunchViewController.m
-//  SampleIOSAppUsingPlanB
+//  DemoCrumbAppLaunchViewController.m
+//  DemoIOSAppUsingCrumb
 //
 //  Created by Arpan Ghosh on 12/19/13.
-//  Copyright (c) 2013 Plan B. All rights reserved.
+//  Copyright (c) 2014 Tracktor Beam. All rights reserved.
 //
 
-#import "SampleAppLaunchViewController.h"
+#import "DemoCrumbAppLaunchViewController.h"
 
 
-@interface SampleAppLaunchViewController ()
+@interface DemoCrumbAppLaunchViewController ()
 
-@property (nonatomic, weak) SampleAppViewControllerMainView *mainView;
+@property (nonatomic, weak) DemoCrumbAppMainViewControllerMainView *mainView;
 
 @end
 
 
-@implementation SampleAppLaunchViewController
+@implementation DemoCrumbAppLaunchViewController
 
 
 - (void)viewDidLoad
@@ -25,8 +25,8 @@
 }
 
 
--(SampleAppViewControllerMainView *)mainView{
-    return (SampleAppViewControllerMainView *)self.view;
+-(DemoCrumbAppMainViewControllerMainView *)mainView{
+    return (DemoCrumbAppMainViewControllerMainView *)self.view;
 }
 
 

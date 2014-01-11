@@ -1,18 +1,18 @@
 //
-//  SampleIOSAppUsingPlanBTests.m
-//  SampleIOSAppUsingPlanBTests
+//  DemoIOSAppUsingCrumbTests.m
+//  DemoIOSAppUsingCrumbTests
 //
 //  Created by Arpan Ghosh on 12/17/13.
-//  Copyright (c) 2013 Plan B. All rights reserved.
+//  Copyright (c) 2014 Tracktor Beam. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
 
-@interface SampleIOSAppUsingPlanBTests : XCTestCase
+@interface DemoIOSAppUsingCrumbTests : XCTestCase
 
 @end
 
-@implementation SampleIOSAppUsingPlanBTests
+@implementation DemoIOSAppUsingCrumbTests
 
 - (void)setUp
 {

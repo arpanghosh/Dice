@@ -1,20 +1,20 @@
 //
-//  SampleAppYelpRecommendation.m
-//  SampleIOSAppUsingPlanB
+//  DemoCrumbAppYelpRecommendation.m
+//  DemoIOSAppUsingCrumb
 //
 //  Created by Arpan Ghosh on 12/17/13.
-//  Copyright (c) 2013 Plan B. All rights reserved.
+//  Copyright (c) 2014 Tracktor Beam. All rights reserved.
 //
 
-#import "SampleAppYelpRecommendation.h"
+#import "DemoCrumbAppYelpRecommendation.h"
 
 
-@interface SampleAppYelpRecommendation()
+@interface DemoCrumbAppYelpRecommendation()
 
 @end
 
 
-@implementation SampleAppYelpRecommendation
+@implementation DemoCrumbAppYelpRecommendation
 
 -(instancetype)initFromAPIResponse:(NSDictionary *)recommendation{
     self = [super init];

@@ -1,13 +1,13 @@
 //
-//  SampleAppYelpRecommendation.h
-//  SampleIOSAppUsingPlanB
+//  DemoCrumbAppYelpRecommendation.h
+//  DemoIOSAppUsingCrumb
 //
 //  Created by Arpan Ghosh on 12/17/13.
-//  Copyright (c) 2013 Plan B. All rights reserved.
+//  Copyright (c) 2014 Tracktor Beam. All rights reserved.
 //
 
 
-@interface SampleAppYelpRecommendation : NSObject
+@interface DemoCrumbAppYelpRecommendation : NSObject
 
 @property (nonatomic, strong) NSString* businessID;
 @property (nonatomic, strong, readonly) NSString* name;

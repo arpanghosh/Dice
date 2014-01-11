@@ -1,14 +1,14 @@
 //
-//  SampleAppRandomYelpRecommender.m
+//  DemoCrumbAppRandomYelpRecommender.m
 //  SampleIOSAppUsingPlanB
 //
 //  Created by Arpan Ghosh on 12/17/13.
-//  Copyright (c) 2013 Plan B. All rights reserved.
+//  Copyright (c) 2014 Tracktor Beam. All rights reserved.
 //
 
-#import "SampleAppRandomYelpRecommender.h"
+#import "DemoCrumbAppRandomYelpRecommender.h"
 
-@interface SampleAppRandomYelpRecommender ()
+@interface DemoCrumbAppRandomYelpRecommender ()
 
 @property (nonatomic, strong, readonly) NSString *apiConsumerKey;
 @property (nonatomic, strong, readonly) NSString *apiConsumerSecret;
@@ -30,14 +30,14 @@
 @end
 
 
-@implementation SampleAppRandomYelpRecommender
+@implementation DemoCrumbAppRandomYelpRecommender
 
 // Publicly visible methods
 /************************************************************************************************************/
 
 // Singleton
 +(instancetype)getRecommender{
-    static SampleAppRandomYelpRecommender *sharedSampleAppRandomYelpRecommender = nil;
+    static DemoCrumbAppRandomYelpRecommender *sharedSampleAppRandomYelpRecommender = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         sharedSampleAppRandomYelpRecommender = [[self alloc] init];
@@ -96,7 +96,7 @@
 
 
 // Delegate method to call on successful recommendation generation
--(void)respondToDelegateWithRecommendation:(SampleAppYelpRecommendation *)recommendation{
+-(void)respondToDelegateWithRecommendation:(DemoCrumbAppYelpRecommendation *)recommendation{
     if ([self.delegate respondsToSelector:@selector(didGenerateARandomRecommendation:)]) {
         [self.delegate didGenerateARandomRecommendation:recommendation];
     }else{
@@ -163,8 +163,8 @@
 // Methods to handle and randomize Yelp recommendations
 /******************************************************************************************************************/
 
--(SampleAppYelpRecommendation *)dequeueRecommendation{
-    SampleAppYelpRecommendation *recommendation = [self.recommendations lastObject];
+-(DemoCrumbAppYelpRecommendation *)dequeueRecommendation{
+    DemoCrumbAppYelpRecommendation *recommendation = [self.recommendations lastObject];
     [self.recommendations removeLastObject];
     return recommendation;
 }
@@ -183,7 +183,7 @@
 
 -(void)populateRecommendationsFromJSON:(NSDictionary *)deserializedRequestResponseData{
     for (NSDictionary *recommendation in [deserializedRequestResponseData valueForKey:@"businesses"]) {
-        [self.recommendations addObject:[[SampleAppYelpRecommendation alloc]
+        [self.recommendations addObject:[[DemoCrumbAppYelpRecommendation alloc]
                                          initFromAPIResponse:recommendation]];
     }
     self.offset += [self.recommendations count];

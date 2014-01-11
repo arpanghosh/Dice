@@ -1,17 +1,17 @@
 //
-//  SampleAppViewController.m
-//  SampleIOSAppUsingPlanB
+//  DemoCrumbAppMainViewController.m
+//  DemoIOSAppUsingCrumb
 //
 //  Created by Arpan Ghosh on 12/17/13.
-//  Copyright (c) 2013 Plan B. All rights reserved.
+//  Copyright (c) 2014 TracktorBeam. All rights reserved.
 //
 
-#import "SampleAppViewController.h"
+#import "DemoCrumbAppMainViewController.h"
 
 
-@interface SampleAppViewController ()
+@interface DemoCrumbAppMainViewController ()
 
-@property (nonatomic, strong) SampleAppRandomYelpRecommender *recommender;
+@property (nonatomic, strong) DemoCrumbAppRandomYelpRecommender *recommender;
 
 @property (weak, nonatomic) IBOutlet UIImageView *recommendationBusinessImage;
 @property (weak, nonatomic) IBOutlet UILabel *recommendationBusinessName;
@@ -26,21 +26,21 @@
 @property (weak, nonatomic) IBOutlet UILabel *recommendationError;
 @property (weak, nonatomic) IBOutlet UIView *tutorialView;
 @property (weak, nonatomic) IBOutlet UIButton *cancelTutorialView;
-@property (weak, nonatomic) SampleAppViewControllerMainView *mainView;
+@property (weak, nonatomic) DemoCrumbAppMainViewControllerMainView *mainView;
 
 @property (strong, nonatomic) UITapGestureRecognizer *imageTapGestureRecognizer;
 @property (strong, nonatomic) UITapGestureRecognizer *snippetTapGestureRecognizer;
 @property (strong, nonatomic) UITapGestureRecognizer *addressTapGestureRecognizer;
 @property (strong, nonatomic) CLGeocoder *geocoder;
 
-@property (strong, nonatomic) SampleAppYelpRecommendation *randomRecommendation;
+@property (strong, nonatomic) DemoCrumbAppYelpRecommendation *randomRecommendation;
 
 @property (nonatomic) BOOL isFirstAppLaunch;
 
 @end
 
 
-@implementation SampleAppViewController
+@implementation DemoCrumbAppMainViewController
 
 // Methods to handle a user's tap for loading the Yelp page for the business
 /*******************************************************************************************************************/
@@ -122,16 +122,16 @@
 // SampleAppRandomYelpRecommender related methods
 /**************************************************************************************************************/
 
--(SampleAppRandomYelpRecommender *)recommender{
+-(DemoCrumbAppRandomYelpRecommender *)recommender{
     if (!_recommender) {
-        _recommender = [SampleAppRandomYelpRecommender getRecommender];
+        _recommender = [DemoCrumbAppRandomYelpRecommender getRecommender];
         _recommender.delegate = self;
     }
     return _recommender;
 }
 
 
-- (void)didGenerateARandomRecommendation:(SampleAppYelpRecommendation *)randomRecommendation{
+- (void)didGenerateARandomRecommendation:(DemoCrumbAppYelpRecommendation *)randomRecommendation{
     self.randomRecommendation = randomRecommendation;
     if (self.randomRecommendation) {
         if (self.isFirstAppLaunch) {
@@ -237,8 +237,8 @@
 }
 
 
--(SampleAppViewControllerMainView *)mainView{
-    return (SampleAppViewControllerMainView *)self.view;
+-(DemoCrumbAppMainViewControllerMainView *)mainView{
+    return (DemoCrumbAppMainViewControllerMainView *)self.view;
 }
 
 
