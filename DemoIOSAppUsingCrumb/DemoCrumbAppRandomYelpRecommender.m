@@ -1,6 +1,6 @@
 //
 //  DemoCrumbAppRandomYelpRecommender.m
-//  SampleIOSAppUsingPlanB
+//  DemoIOSAppUsingCrumb
 //
 //  Created by Arpan Ghosh on 12/17/13.
 //  Copyright (c) 2014 Tracktor Beam. All rights reserved.
