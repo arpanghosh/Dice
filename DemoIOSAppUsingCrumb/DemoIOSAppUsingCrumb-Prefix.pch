@@ -14,8 +14,7 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
     #import <CoreLocation/CoreLocation.h>
-    //#import <stdlib.h>
-    #import <OAuthConsumer/OAuthConsumer.h>
+    #import <ObjectiveCOAuth1Consumer/ObjectiveCOAuth1Consumer.h>
     #import <AudioToolbox/AudioServices.h>
     #import <MapKit/MapKit.h>
     #import <QuartzCore/QuartzCore.h>
