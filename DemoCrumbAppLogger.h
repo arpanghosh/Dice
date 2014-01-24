@@ -8,6 +8,6 @@
 
 @interface DemoCrumbAppLogger : NSObject
 
-+(void)logWithMessage:(NSString *)message andError:(NSError *)error;
++(void)logWithClass:(Class)class Message:(NSString *)message andError:(NSError *)error;
 
 @end

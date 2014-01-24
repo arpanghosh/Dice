@@ -11,8 +11,8 @@
 @implementation DemoCrumbAppLogger
 
 // Logging convenience method
-+(void)logWithMessage:(NSString *)message andError:(NSError *)error{
-    NSLog(@"%@ : %@\n%@ : %@", NSStringFromClass([self class]), message,
++(void)logWithClass:(Class)class Message:(NSString *)message andError:(NSError *)error{
+    NSLog(@"%@ : %@\n%@ : %@", NSStringFromClass(class), message,
           [error localizedDescription],
           [error localizedFailureReason]);
 }

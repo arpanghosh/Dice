@@ -91,7 +91,9 @@
     [self.geocoder geocodeAddressString:self.randomRecommendation.fullAddress
                       completionHandler:^(NSArray *placemarks, NSError *error) {
                           if (error) {
-                              [DemoCrumbAppLogger logWithMessage:@"Geocoder failed with error" andError:error];
+                              [DemoCrumbAppLogger logWithClass:[self class]
+                                                       Message:@"Geocoder failed with error"
+                                                      andError:error];
                           }else{
                               if(placemarks && placemarks.count > 0)
                               {
@@ -165,7 +167,9 @@
 
 - (void)didFailToGenerateRandomRecommendationWithError:(NSError *)error{
     [self updateViewInCaseOfNoRecommendation];
-    [DemoCrumbAppLogger logWithMessage:@"Failed to fetch random Yelp recommendation with error" andError:error];
+    [DemoCrumbAppLogger logWithClass:[self class]
+                             Message:@"Failed to fetch random Yelp recommendation with error"
+                            andError:error];
 }
 
 
