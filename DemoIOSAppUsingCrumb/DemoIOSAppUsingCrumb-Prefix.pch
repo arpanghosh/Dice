@@ -18,4 +18,8 @@
     #import <AudioToolbox/AudioServices.h>
     #import <MapKit/MapKit.h>
     #import <QuartzCore/QuartzCore.h>
+    #import <HTTPStatusCodes.h>
+
+    #import "DemoCrumbAppConstants.h"
+    #import "DemoCrumbAppLogger.h"
 #endif

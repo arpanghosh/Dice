@@ -12,6 +12,7 @@
 #import "DemoCrumbAppMainViewControllerMainView.h"
 
 
-@interface DemoCrumbAppMainViewController : UIViewController <DemoCrumbAppRandomYelpRecommenderDelegate, DemoCrumbAppMainViewControllerMainViewDelegate>
+@interface DemoCrumbAppMainViewController :
+UIViewController <DemoCrumbAppRandomYelpRecommenderDelegate, ShakeDetectionDelegate>
 
 @end

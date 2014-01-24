@@ -9,13 +9,11 @@
 #import "DemoCrumbAppYelpRecommendation.h"
 
 
-@interface DemoCrumbAppYelpRecommendation()
-
-@end
-
-
 @implementation DemoCrumbAppYelpRecommendation
 
+#pragma mark - Initializers
+
+//Designated Initializer
 -(instancetype)initFromAPIResponse:(NSDictionary *)recommendation{
     self = [super init];
     if (self){
@@ -27,7 +25,7 @@
         _yelpURL = [recommendation valueForKey:@"mobile_url"];
         _reviewCount = [[recommendation valueForKey:@"review_count"] integerValue];
         _distanceInMiles =
-        [[recommendation valueForKey:@"review_count"] doubleValue] * 0.000621371;
+        [[recommendation valueForKey:@"review_count"] doubleValue] * METERS_TO_MILES_CONVERSION_FACTOR;
         _ratingImageURL = [recommendation valueForKey:@"rating_img_url_large"];
         _ratingImage = nil;
         _snippet = [[[recommendation valueForKey:@"snippet_text"] stringByReplacingOccurrencesOfString:@"\n" withString:@" "]stringByTrimmingCharactersInSet:[NSCharacterSet newlineCharacterSet]];
@@ -42,11 +40,12 @@
         _fullAddress = [[[[[recommendation valueForKey:@"location"] valueForKey:@"display_address"] firstObject]
                          stringByAppendingString:@", "] stringByAppendingString:[[[recommendation
                                                    valueForKey:@"location"] valueForKey:@"display_address"] lastObject]];
-        
     }
     return self;
 }
 
+
+#pragma mark - Asynchronous Image Download Methods
 
 -(void)downloadBusinessImageIfRequiredAndDisplayInImageView:(UIImageView *)businessImageView{
     if (!_image) {
@@ -57,7 +56,7 @@
                                  sendSynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.imageURL]]
                                  returningResponse:&response
                                  error:&error];
-            if (!error && ([response statusCode] == 200)) {
+            if (!error && ([response statusCode] == kHTTPStatusCodeOK)) {
                 _image = [UIImage imageWithData:imageData];
             }else{
                 _image = [UIImage imageNamed:@"image_not_available.png"];
@@ -75,7 +74,6 @@
     }
 }
 
-
 -(void)downloadRatingImageIfRequiredAndDisplayInImageView:(UIImageView *)ratingImageView{
     if (!_ratingImage) {
         dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_BACKGROUND, 0), ^{
@@ -85,7 +83,7 @@
                                  sendSynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.ratingImageURL]]
                                  returningResponse:&response
                                  error:&error];
-            if (!error && ([response statusCode] == 200)) {
+            if (!error && ([response statusCode] == kHTTPStatusCodeOK)) {
                 _ratingImage = [UIImage imageWithData:imageData];
             }else{
                 _ratingImage = [UIImage imageNamed:@"image_not_available_small.png"];

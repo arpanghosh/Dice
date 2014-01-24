@@ -42,8 +42,7 @@
 
 @implementation DemoCrumbAppMainViewController
 
-// Methods to handle a user's tap for loading the Yelp page for the business
-/*******************************************************************************************************************/
+#pragma mark - Yelp Tap Gesture Handling & Display Methods
 
 -(UITapGestureRecognizer *)imageTapGestureRecognizer{
     if (!_imageTapGestureRecognizer){
@@ -53,7 +52,6 @@
     return _imageTapGestureRecognizer;
 }
 
-
 -(UITapGestureRecognizer *)snippetTapGestureRecognizer{
     if (!_snippetTapGestureRecognizer){
         _snippetTapGestureRecognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(openBusinessPageinYelp)];
@@ -62,23 +60,17 @@
     return _snippetTapGestureRecognizer;
 }
 
-
 -(void)openBusinessPageinYelp{
-    if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:@"yelp:"]]) {
+    if ([[UIApplication sharedApplication] canOpenURL:[NSURL URLWithString:YELP_APP_URL_FORMAT]]) {
         [[UIApplication sharedApplication]
-         openURL:[NSURL URLWithString:[NSString stringWithFormat:@"yelp:///biz/%@", self.randomRecommendation.businessID]]];
+         openURL:[NSURL URLWithString:[NSString stringWithFormat:DEMO_CRUMB_APP_YELP_APP_BUSINESS_PAGE_URL, self.randomRecommendation.businessID]]];
     }else{
         [[UIApplication sharedApplication] openURL:[NSURL URLWithString:self.randomRecommendation.yelpURL]];
     }
 }
 
-/******************************************************************************************************************/
 
-
-
-
-// Methods to handle a user's tap for loading the Maps app to display the business' location
-/******************************************************************************************************************/
+#pragma mark - Map Tap Gesture Handling & Display Methods
 
 -(UITapGestureRecognizer *)addressTapGestureRecognizer{
     if (!_addressTapGestureRecognizer){
@@ -88,7 +80,6 @@
     return _addressTapGestureRecognizer;
 }
 
-
 -(CLGeocoder *)geocoder{
     if (!_geocoder) {
         _geocoder = [[CLGeocoder alloc] init];
@@ -96,12 +87,11 @@
     return _geocoder;
 }
 
-
 -(void)respondToAddressTap{
     [self.geocoder geocodeAddressString:self.randomRecommendation.fullAddress
                       completionHandler:^(NSArray *placemarks, NSError *error) {
                           if (error) {
-                              [self logWithMessage:@"Geocoder failed with error" andError:error];
+                              [DemoCrumbAppLogger logWithMessage:@"Geocoder failed with error" andError:error];
                           }else{
                               if(placemarks && placemarks.count > 0)
                               {
@@ -113,14 +103,8 @@
     }];
 }
 
-/*************************************************************************************************************************/
 
-
-
-
-
-// SampleAppRandomYelpRecommender related methods
-/**************************************************************************************************************/
+#pragma mark - Initializers, Getters & Setters
 
 -(DemoCrumbAppRandomYelpRecommender *)recommender{
     if (!_recommender) {
@@ -130,6 +114,40 @@
     return _recommender;
 }
 
+-(DemoCrumbAppMainViewControllerMainView *)mainView{
+    return (DemoCrumbAppMainViewControllerMainView *)self.view;
+}
+
+// Initialize everything for this ViewController
+-(void)initialize{
+    self.isFirstAppLaunch = [self firstAppLaunch];
+    
+    [self initializeGestureRecognizers];
+    [self initializeUIElements];
+    
+    //Fetch the first recommendation
+    [self updateViewWhileFetchingRecommendation];
+    [self.recommender fetchRandomRecommendation];
+}
+
+-(void)initializeUIElements{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        self.recommendationBusinessReviewCount.layer.cornerRadius = 4;
+        self.recommendationBusinessStreetAddress.layer.cornerRadius = 4;
+        self.recommendationBusinessDistance.layer.cornerRadius = 4;
+        
+        [self.tutorialView setHidden:YES];
+    });
+}
+
+-(void) initializeGestureRecognizers{
+    [self.recommendationBusinessImage addGestureRecognizer:self.imageTapGestureRecognizer];
+    [self.recommendationBusinessSnippet addGestureRecognizer:self.snippetTapGestureRecognizer];
+    [self.recommendationBusinessStreetAddress addGestureRecognizer:self.addressTapGestureRecognizer];
+}
+
+
+#pragma mark - DemoCrumbAppRandomYelpRecommenderDelegate Methods
 
 - (void)didGenerateARandomRecommendation:(DemoCrumbAppYelpRecommendation *)randomRecommendation{
     self.randomRecommendation = randomRecommendation;
@@ -145,20 +163,13 @@
     }
 }
 
-
 - (void)didFailToGenerateRandomRecommendationWithError:(NSError *)error{
     [self updateViewInCaseOfNoRecommendation];
-    [self logWithMessage:@"Failed to fetch random Yelp recommendation with error" andError:error];
+    [DemoCrumbAppLogger logWithMessage:@"Failed to fetch random Yelp recommendation with error" andError:error];
 }
 
-/*************************************************************************************************************/
 
-
-
-
-// Methods for drawing the UI
-/************************************************************************************************************/
-
+#pragma mark - UI Drawing Methods
 
 -(void)updateViewWhileFetchingRecommendation{
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -168,14 +179,12 @@
     });
 }
 
-
 -(void)updateViewInCaseOfNoRecommendation{
     dispatch_async(dispatch_get_main_queue(), ^{
         [self clearViewElements];
         self.recommendationError.hidden = NO;
     });
 }
-
 
 -(void)updateViewWithValidRecommendation{
     dispatch_async(dispatch_get_main_queue(), ^{
@@ -207,7 +216,6 @@
     });
 }
 
-
 -(void)clearViewElements{
     self.recommendationBusinessName.hidden = YES;
     self.recommendationBusinessCategory.hidden = YES;
@@ -222,14 +230,8 @@
     [self.loadingRecommendation stopAnimating];
 }
 
-/**************************************************************************************************************/
 
-
-
-
-
-// Methods to handle the device's 'shake' motion
-/**************************************************************************************************************/
+#pragma mark - ShakeDetectionDelegate
 
 -(void)shakeDetected{
     [self updateViewWhileFetchingRecommendation];
@@ -237,15 +239,7 @@
 }
 
 
--(DemoCrumbAppMainViewControllerMainView *)mainView{
-    return (DemoCrumbAppMainViewControllerMainView *)self.view;
-}
-
-
-/*************************************************************************************************************/
-
-
-
+#pragma mark - ViewController Lifecycle Methods
 
 - (void)viewDidLoad
 {
@@ -265,47 +259,17 @@
 }
 
 
-// Initialize everything for this ViewController
--(void)initialize{
-    self.isFirstAppLaunch = [self firstAppLaunch];
-    
-    [self initializeGestureRecognizers];
-    [self initializeUIElements];
-    
-    //Fetch the first recommendation
-    [self updateViewWhileFetchingRecommendation];
-    [self.recommender fetchRandomRecommendation];
-}
-
-
--(void)initializeUIElements{
-    dispatch_async(dispatch_get_main_queue(), ^{
-        self.recommendationBusinessReviewCount.layer.cornerRadius = 4;
-        self.recommendationBusinessStreetAddress.layer.cornerRadius = 4;
-        self.recommendationBusinessDistance.layer.cornerRadius = 4;
-        
-        [self.tutorialView setHidden:YES];
-    });
-}
-
-
--(void) initializeGestureRecognizers{
-    [self.recommendationBusinessImage addGestureRecognizer:self.imageTapGestureRecognizer];
-    [self.recommendationBusinessSnippet addGestureRecognizer:self.snippetTapGestureRecognizer];
-    [self.recommendationBusinessStreetAddress addGestureRecognizer:self.addressTapGestureRecognizer];
-}
-
+#pragma mark - Tutorial View Functionality
 
 -(BOOL)firstAppLaunch{
-    if ([[NSUserDefaults standardUserDefaults] boolForKey:@"HasLaunchedOnce"]){ return NO; }
+    if ([[NSUserDefaults standardUserDefaults] boolForKey:DEMO_CRUMB_APP_FIRST_LAUNCH_KEY]){ return NO; }
     else
     {
-        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"HasLaunchedOnce"];
+        [[NSUserDefaults standardUserDefaults] setBool:YES forKey:DEMO_CRUMB_APP_FIRST_LAUNCH_KEY];
         [[NSUserDefaults standardUserDefaults] synchronize];
         return YES;
     }
 }
-
 
 - (IBAction)tutorialViewCancelled {
     self.isFirstAppLaunch = NO;
@@ -313,14 +277,5 @@
         [self.tutorialView removeFromSuperview];
     });
 }
-
-
-// Logging convenience method
--(void)logWithMessage:(NSString *)message andError:(NSError *)error{
-    NSLog(@"%@ : %@\n%@ : %@", NSStringFromClass([self class]), message,
-          [error localizedDescription],
-          [error localizedFailureReason]);
-}
-
 
 @end

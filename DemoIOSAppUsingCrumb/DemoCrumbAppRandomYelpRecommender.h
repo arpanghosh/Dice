@@ -20,20 +20,18 @@ typedef enum YelpRequestStates {
 
 
 @protocol DemoCrumbAppRandomYelpRecommenderDelegate <NSObject>
+@required
 
 -(void)didGenerateARandomRecommendation:(DemoCrumbAppYelpRecommendation *)randomRecommendation;
-
 -(void)didFailToGenerateRandomRecommendationWithError:(NSError *)error;
 
 @end
 
 
+@interface DemoCrumbAppRandomYelpRecommender :
+NSObject <NSURLConnectionDataDelegate, CLLocationManagerDelegate>
 
-
-@interface DemoCrumbAppRandomYelpRecommender : NSObject <NSURLConnectionDataDelegate, CLLocationManagerDelegate>
-
-@property (nonatomic, weak) id <DemoCrumbAppRandomYelpRecommenderDelegate> delegate;
-
+@property (nonatomic, weak) id<DemoCrumbAppRandomYelpRecommenderDelegate> delegate;
 
 +(instancetype)getRecommender;
 

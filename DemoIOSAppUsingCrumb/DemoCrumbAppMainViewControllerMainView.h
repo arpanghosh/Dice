@@ -7,16 +7,15 @@
 //
 
 
-@protocol DemoCrumbAppMainViewControllerMainViewDelegate
+@protocol ShakeDetectionDelegate
 
 -(void)shakeDetected;
 
 @end
 
 
-
 @interface DemoCrumbAppMainViewControllerMainView : UIView
 
-@property (nonatomic, weak) id <DemoCrumbAppMainViewControllerMainViewDelegate> delegate;
+@property (nonatomic, weak) id <ShakeDetectionDelegate> delegate;
 
 @end

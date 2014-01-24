@@ -10,6 +10,6 @@
 #import "DemoCrumbAppMainViewController.h"
 #import "DemoCrumbAppMainViewControllerMainView.h"
 
-@interface DemoCrumbAppLaunchViewController : UIViewController <DemoCrumbAppMainViewControllerMainViewDelegate>
+@interface DemoCrumbAppLaunchViewController : UIViewController <ShakeDetectionDelegate>
 
 @end

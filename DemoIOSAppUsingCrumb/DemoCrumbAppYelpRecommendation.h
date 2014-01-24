@@ -24,7 +24,9 @@
 @property (nonatomic, strong, readonly) NSString* snippet;
 
 
+//Designated Initializer
 -(instancetype)initFromAPIResponse:(NSDictionary *)recommendation;
+
 -(void)downloadBusinessImageIfRequiredAndDisplayInImageView:(UIImageView *)businessImageView;
 -(void)downloadRatingImageIfRequiredAndDisplayInImageView:(UIImageView *)ratingImageView;
 

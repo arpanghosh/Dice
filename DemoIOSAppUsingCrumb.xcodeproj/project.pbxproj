@@ -48,6 +48,7 @@
 		81B9CF4D1860FD7D00F9646C /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 81B9CF4B1860FD7D00F9646C /* InfoPlist.strings */; };
 		81B9CF4F1860FD7D00F9646C /* DemoIOSAppUsingCrumbTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 81B9CF4E1860FD7D00F9646C /* DemoIOSAppUsingCrumbTests.m */; };
 		81B9CF591860FDE300F9646C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81B9CF581860FDE300F9646C /* CoreLocation.framework */; };
+		81D7738A1892095800B7219D /* DemoCrumbAppLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 81D773891892095800B7219D /* DemoCrumbAppLogger.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -102,6 +103,7 @@
 		817F72B8188205260005BEDD /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = DemoIOSAppUsingCrumb/main.m; sourceTree = SOURCE_ROOT; };
 		81A1E9111866DE4F00ACCE4A /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		81A5B9FC186796C100C36B4E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		81A91E581891F94000E9AC66 /* DemoCrumbAppConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoCrumbAppConstants.h; sourceTree = SOURCE_ROOT; };
 		81B9CF1D1860FD7D00F9646C /* DemoIOSAppUsingCrumb.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DemoIOSAppUsingCrumb.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81B9CF201860FD7D00F9646C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		81B9CF221860FD7D00F9646C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -112,6 +114,8 @@
 		81B9CF4C1860FD7D00F9646C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		81B9CF4E1860FD7D00F9646C /* DemoIOSAppUsingCrumbTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DemoIOSAppUsingCrumbTests.m; sourceTree = "<group>"; };
 		81B9CF581860FDE300F9646C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		81D773881892095800B7219D /* DemoCrumbAppLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DemoCrumbAppLogger.h; sourceTree = SOURCE_ROOT; };
+		81D773891892095800B7219D /* DemoCrumbAppLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DemoCrumbAppLogger.m; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -239,6 +243,9 @@
 		81B9CF261860FD7D00F9646C /* DemoIOSAppUsingCrumb */ = {
 			isa = PBXGroup;
 			children = (
+				81A91E581891F94000E9AC66 /* DemoCrumbAppConstants.h */,
+				81D773881892095800B7219D /* DemoCrumbAppLogger.h */,
+				81D773891892095800B7219D /* DemoCrumbAppLogger.m */,
 				810F7C7E18640CDF0058769E /* Controllers */,
 				810F7C7D18640CD00058769E /* Views */,
 				810F7C7B18640C930058769E /* Models */,
@@ -446,6 +453,7 @@
 				817F72851882047E0005BEDD /* DemoCrumbAppMainViewControllerMainView.m in Sources */,
 				817F728B188204990005BEDD /* DemoCrumbAppRandomYelpRecommender.m in Sources */,
 				817F72B9188205260005BEDD /* main.m in Sources */,
+				81D7738A1892095800B7219D /* DemoCrumbAppLogger.m in Sources */,
 				817F7293188204CE0005BEDD /* DemoCrumbAppAppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
