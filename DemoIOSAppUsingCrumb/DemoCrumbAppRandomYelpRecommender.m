@@ -129,8 +129,8 @@
 
 -(NSURL *)yelpAPIURLWithCurrentLocation{
     NSString *URLString =
-    [NSString stringWithFormat:@"http://api.yelp.com/v2/search?term=restaurants&ll=%f,%f&radius_filter=3219&offset=%d&limit=20",
-     self.latestLocation.coordinate.latitude, self.latestLocation.coordinate.longitude, self.offset];
+    [NSString stringWithFormat:@"http://api.yelp.com/v2/search?term=restaurants&ll=%f,%f&radius_filter=3219&offset=%ld&limit=20",
+     self.latestLocation.coordinate.latitude, self.latestLocation.coordinate.longitude, (long)self.offset];
     return [[NSURL alloc] initWithString:URLString];
 }
 
@@ -175,7 +175,7 @@
     for (NSUInteger i = 0; i < count; ++i) {
         // Select a random element between i and end of array to swap with.
         NSInteger nElements = count - i;
-        NSInteger n = arc4random_uniform(nElements) + i;
+        NSInteger n = arc4random_uniform((u_int32_t)nElements) + i;
         [self.recommendations exchangeObjectAtIndex:i withObjectAtIndex:n];
     }
 }
@@ -259,7 +259,7 @@
         self.requestState = YelpRequestStateSuccessful;
     }else{
         self.requestState = YelpRequestStateFailed;
-        [self logWithMessage:[NSString stringWithFormat:@"HTTP request failed with status code %d", [responseHTTP statusCode]] andError:nil];
+        [self logWithMessage:[NSString stringWithFormat:@"HTTP request failed with status code %ld", (long)[responseHTTP statusCode]] andError:nil];
     }
 }
 

@@ -188,7 +188,7 @@
         self.recommendationBusinessCategory.hidden = NO;
         
         self.recommendationBusinessReviewCount.text =
-        [NSString stringWithFormat:@"%d reviews",self.randomRecommendation.reviewCount];
+        [NSString stringWithFormat:@"%ld reviews",(long)self.randomRecommendation.reviewCount];
         self.recommendationBusinessReviewCount.hidden = NO;
         
         self.recommendationBusinessSnippet.text =
