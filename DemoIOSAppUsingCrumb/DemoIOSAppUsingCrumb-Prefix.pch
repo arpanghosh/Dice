@@ -19,6 +19,7 @@
     #import <MapKit/MapKit.h>
     #import <QuartzCore/QuartzCore.h>
     #import <HTTPStatusCodes.h>
+    #import <Crumb/Crumb.h>
 
     #import "DemoCrumbAppConstants.h"
     #import "DemoCrumbAppLogger.h"

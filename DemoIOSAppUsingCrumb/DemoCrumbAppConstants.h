@@ -13,7 +13,7 @@
 #define DEMO_CRUMB_APP_YELP_API_TOKEN @"OWyYIafAtafVTi8a12RvXbXJfdnbhPZB"
 #define DEMO_CRUMB_APP_YELP_API_TOKEN_SECRET @"zvlHSLDDJqUKNR5wG220SoVvp3A"
 
-#define DEMO_CRUMB_APP_YELP_API_REQUEST_URL @"http://ap.yelp.com/v2/search?term=restaurants&ll=%f,%f&radius_filter=3219&offset=%ld&limit=20"
+#define DEMO_CRUMB_APP_YELP_API_REQUEST_URL @"http://api.yelp.com/v2/search?term=restaurants&ll=%f,%f&radius_filter=3219&offset=%ld&limit=20"
 #define DEMO_CRUMB_APP_YELP_API_RESPONSE_ROOT_FIELD @"businesses"
 
 
