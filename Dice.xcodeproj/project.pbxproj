@@ -1,0 +1,713 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7F2A2FC03CD14542A57444C1 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 555CA1F52402431A82186443 /* libPods.a */; };
+		816CA44E1915A20D00B279FC /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 816CA44C1915A20D00B279FC /* Main_iPhone.storyboard */; };
+		816CA4511915A22600B279FC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 816CA44F1915A22600B279FC /* InfoPlist.strings */; };
+		816CA4541915A23A00B279FC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 816CA4521915A23A00B279FC /* InfoPlist.strings */; };
+		817F727C1881DD0B0005BEDD /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 817F727B1881DD0B0005BEDD /* MapKit.framework */; };
+		81A1E9121866DE4F00ACCE4A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81A1E9111866DE4F00ACCE4A /* AudioToolbox.framework */; };
+		81A5B9FD186796C100C36B4E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81A5B9FC186796C100C36B4E /* QuartzCore.framework */; };
+		81B9CF211860FD7D00F9646C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81B9CF201860FD7D00F9646C /* Foundation.framework */; };
+		81B9CF231860FD7D00F9646C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81B9CF221860FD7D00F9646C /* CoreGraphics.framework */; };
+		81B9CF251860FD7D00F9646C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81B9CF241860FD7D00F9646C /* UIKit.framework */; };
+		81B9CF431860FD7D00F9646C /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81B9CF421860FD7D00F9646C /* XCTest.framework */; };
+		81B9CF441860FD7D00F9646C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81B9CF201860FD7D00F9646C /* Foundation.framework */; };
+		81B9CF451860FD7D00F9646C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81B9CF241860FD7D00F9646C /* UIKit.framework */; };
+		81B9CF591860FDE300F9646C /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81B9CF581860FDE300F9646C /* CoreLocation.framework */; };
+		81FF7B431915A0420054D1F1 /* DiceLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 81FF7B421915A0420054D1F1 /* DiceLogger.m */; };
+		81FF7B481915A05C0054D1F1 /* DiceLaunchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81FF7B451915A05C0054D1F1 /* DiceLaunchViewController.m */; };
+		81FF7B491915A05C0054D1F1 /* DiceMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 81FF7B471915A05C0054D1F1 /* DiceMainViewController.m */; };
+		81FF7B4C1915A0B20054D1F1 /* DiceMainView.m in Sources */ = {isa = PBXBuildFile; fileRef = 81FF7B4A1915A0B20054D1F1 /* DiceMainView.m */; };
+		81FF7B511915A0C30054D1F1 /* DiceYelpRecommendation.m in Sources */ = {isa = PBXBuildFile; fileRef = 81FF7B4D1915A0C30054D1F1 /* DiceYelpRecommendation.m */; };
+		81FF7B521915A0C30054D1F1 /* DiceRandomYelpRecommender.m in Sources */ = {isa = PBXBuildFile; fileRef = 81FF7B4F1915A0C30054D1F1 /* DiceRandomYelpRecommender.m */; };
+		81FF7B541915A0CF0054D1F1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 81FF7B531915A0CF0054D1F1 /* Images.xcassets */; };
+		81FF7B591915A0E30054D1F1 /* DiceAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 81FF7B551915A0E30054D1F1 /* DiceAppDelegate.m */; };
+		81FF7B5C1915A0F50054D1F1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 81FF7B5B1915A0F50054D1F1 /* main.m */; };
+		81FF7B681915A13B0054D1F1 /* image_not_available.png in Resources */ = {isa = PBXBuildFile; fileRef = 81FF7B5D1915A13B0054D1F1 /* image_not_available.png */; };
+		81FF7B691915A13B0054D1F1 /* image_not_available_small.png in Resources */ = {isa = PBXBuildFile; fileRef = 81FF7B5E1915A13B0054D1F1 /* image_not_available_small.png */; };
+		81FF7B6A1915A13B0054D1F1 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 81FF7B5F1915A13B0054D1F1 /* icon.png */; };
+		81FF7B6B1915A13B0054D1F1 /* icon-launch.png in Resources */ = {isa = PBXBuildFile; fileRef = 81FF7B601915A13B0054D1F1 /* icon-launch.png */; };
+		81FF7B6C1915A13B0054D1F1 /* icon-60.png in Resources */ = {isa = PBXBuildFile; fileRef = 81FF7B611915A13B0054D1F1 /* icon-60.png */; };
+		81FF7B6D1915A13B0054D1F1 /* icon-40.png in Resources */ = {isa = PBXBuildFile; fileRef = 81FF7B621915A13B0054D1F1 /* icon-40.png */; };
+		81FF7B6E1915A13B0054D1F1 /* icon-29.png in Resources */ = {isa = PBXBuildFile; fileRef = 81FF7B631915A13B0054D1F1 /* icon-29.png */; };
+		81FF7B6F1915A13B0054D1F1 /* fork.png in Resources */ = {isa = PBXBuildFile; fileRef = 81FF7B641915A13B0054D1F1 /* fork.png */; };
+		81FF7B701915A13B0054D1F1 /* chopstick-under.png in Resources */ = {isa = PBXBuildFile; fileRef = 81FF7B651915A13B0054D1F1 /* chopstick-under.png */; };
+		81FF7B711915A13B0054D1F1 /* chopstick-over.png in Resources */ = {isa = PBXBuildFile; fileRef = 81FF7B661915A13B0054D1F1 /* chopstick-over.png */; };
+		81FF7B721915A13B0054D1F1 /* cancel-button.png in Resources */ = {isa = PBXBuildFile; fileRef = 81FF7B671915A13B0054D1F1 /* cancel-button.png */; };
+		81FF7B7A1915A1480054D1F1 /* three-dish.png in Resources */ = {isa = PBXBuildFile; fileRef = 81FF7B731915A1480054D1F1 /* three-dish.png */; };
+		81FF7B7B1915A1480054D1F1 /* table-launch-568.png in Resources */ = {isa = PBXBuildFile; fileRef = 81FF7B741915A1480054D1F1 /* table-launch-568.png */; };
+		81FF7B7C1915A1480054D1F1 /* table-launch-480.png in Resources */ = {isa = PBXBuildFile; fileRef = 81FF7B751915A1480054D1F1 /* table-launch-480.png */; };
+		81FF7B7D1915A1480054D1F1 /* table-568.png in Resources */ = {isa = PBXBuildFile; fileRef = 81FF7B761915A1480054D1F1 /* table-568.png */; };
+		81FF7B7E1915A1480054D1F1 /* table-480.png in Resources */ = {isa = PBXBuildFile; fileRef = 81FF7B771915A1480054D1F1 /* table-480.png */; };
+		81FF7B7F1915A1480054D1F1 /* plate-long.png in Resources */ = {isa = PBXBuildFile; fileRef = 81FF7B781915A1480054D1F1 /* plate-long.png */; };
+		81FF7B801915A1480054D1F1 /* napkin.png in Resources */ = {isa = PBXBuildFile; fileRef = 81FF7B791915A1480054D1F1 /* napkin.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		81B9CF461860FD7D00F9646C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 81B9CF151860FD7C00F9646C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 81B9CF1C1860FD7D00F9646C;
+			remoteInfo = SampleIOSAppUsingPlanB;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2157BFFC39B24F88819A45DA /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		555CA1F52402431A82186443 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		816CA44D1915A20D00B279FC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Dice/Base.lproj/Main_iPhone.storyboard; sourceTree = SOURCE_ROOT; };
+		816CA4501915A22600B279FC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = Dice/en.lproj/InfoPlist.strings; sourceTree = SOURCE_ROOT; };
+		816CA4531915A23A00B279FC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = DiceTests/en.lproj/InfoPlist.strings; sourceTree = SOURCE_ROOT; };
+		817F727B1881DD0B0005BEDD /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		81A1E9111866DE4F00ACCE4A /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		81A5B9FC186796C100C36B4E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		81B9CF1D1860FD7D00F9646C /* Dice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dice.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		81B9CF201860FD7D00F9646C /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		81B9CF221860FD7D00F9646C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		81B9CF241860FD7D00F9646C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		81B9CF411860FD7D00F9646C /* DiceTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DiceTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		81B9CF421860FD7D00F9646C /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		81B9CF581860FDE300F9646C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		81F756511919FFA50091A343 /* DiceYelpConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiceYelpConstants.h; path = Dice/DiceYelpConstants.h; sourceTree = SOURCE_ROOT; };
+		81FF7B401915A0340054D1F1 /* DiceConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiceConstants.h; path = Dice/DiceConstants.h; sourceTree = SOURCE_ROOT; };
+		81FF7B411915A0420054D1F1 /* DiceLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiceLogger.h; path = Dice/DiceLogger.h; sourceTree = SOURCE_ROOT; };
+		81FF7B421915A0420054D1F1 /* DiceLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiceLogger.m; path = Dice/DiceLogger.m; sourceTree = SOURCE_ROOT; };
+		81FF7B441915A05C0054D1F1 /* DiceLaunchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiceLaunchViewController.h; path = Dice/DiceLaunchViewController.h; sourceTree = SOURCE_ROOT; };
+		81FF7B451915A05C0054D1F1 /* DiceLaunchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiceLaunchViewController.m; path = Dice/DiceLaunchViewController.m; sourceTree = SOURCE_ROOT; };
+		81FF7B461915A05C0054D1F1 /* DiceMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiceMainViewController.h; path = Dice/DiceMainViewController.h; sourceTree = SOURCE_ROOT; };
+		81FF7B471915A05C0054D1F1 /* DiceMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiceMainViewController.m; path = Dice/DiceMainViewController.m; sourceTree = SOURCE_ROOT; };
+		81FF7B4A1915A0B20054D1F1 /* DiceMainView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiceMainView.m; path = Dice/DiceMainView.m; sourceTree = SOURCE_ROOT; };
+		81FF7B4B1915A0B20054D1F1 /* DiceMainView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiceMainView.h; path = Dice/DiceMainView.h; sourceTree = SOURCE_ROOT; };
+		81FF7B4D1915A0C30054D1F1 /* DiceYelpRecommendation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiceYelpRecommendation.m; path = Dice/DiceYelpRecommendation.m; sourceTree = SOURCE_ROOT; };
+		81FF7B4E1915A0C30054D1F1 /* DiceYelpRecommendation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiceYelpRecommendation.h; path = Dice/DiceYelpRecommendation.h; sourceTree = SOURCE_ROOT; };
+		81FF7B4F1915A0C30054D1F1 /* DiceRandomYelpRecommender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiceRandomYelpRecommender.m; path = Dice/DiceRandomYelpRecommender.m; sourceTree = SOURCE_ROOT; };
+		81FF7B501915A0C30054D1F1 /* DiceRandomYelpRecommender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiceRandomYelpRecommender.h; path = Dice/DiceRandomYelpRecommender.h; sourceTree = SOURCE_ROOT; };
+		81FF7B531915A0CF0054D1F1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Dice/Images.xcassets; sourceTree = SOURCE_ROOT; };
+		81FF7B551915A0E30054D1F1 /* DiceAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DiceAppDelegate.m; path = Dice/DiceAppDelegate.m; sourceTree = SOURCE_ROOT; };
+		81FF7B561915A0E30054D1F1 /* DiceAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DiceAppDelegate.h; path = Dice/DiceAppDelegate.h; sourceTree = SOURCE_ROOT; };
+		81FF7B571915A0E30054D1F1 /* Dice-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Dice-Prefix.pch"; path = "Dice/Dice-Prefix.pch"; sourceTree = SOURCE_ROOT; };
+		81FF7B581915A0E30054D1F1 /* Dice-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Dice-Info.plist"; path = "Dice/Dice-Info.plist"; sourceTree = SOURCE_ROOT; };
+		81FF7B5B1915A0F50054D1F1 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = Dice/main.m; sourceTree = SOURCE_ROOT; };
+		81FF7B5D1915A13B0054D1F1 /* image_not_available.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = image_not_available.png; path = Dice/Images.xcassets/image_not_available.png; sourceTree = SOURCE_ROOT; };
+		81FF7B5E1915A13B0054D1F1 /* image_not_available_small.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = image_not_available_small.png; path = Dice/Images.xcassets/image_not_available_small.png; sourceTree = SOURCE_ROOT; };
+		81FF7B5F1915A13B0054D1F1 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = icon.png; path = Dice/Images.xcassets/icon.png; sourceTree = SOURCE_ROOT; };
+		81FF7B601915A13B0054D1F1 /* icon-launch.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-launch.png"; path = "Dice/Images.xcassets/icon-launch.png"; sourceTree = SOURCE_ROOT; };
+		81FF7B611915A13B0054D1F1 /* icon-60.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-60.png"; path = "Dice/Images.xcassets/icon-60.png"; sourceTree = SOURCE_ROOT; };
+		81FF7B621915A13B0054D1F1 /* icon-40.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-40.png"; path = "Dice/Images.xcassets/icon-40.png"; sourceTree = SOURCE_ROOT; };
+		81FF7B631915A13B0054D1F1 /* icon-29.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "icon-29.png"; path = "Dice/Images.xcassets/icon-29.png"; sourceTree = SOURCE_ROOT; };
+		81FF7B641915A13B0054D1F1 /* fork.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = fork.png; path = Dice/Images.xcassets/fork.png; sourceTree = SOURCE_ROOT; };
+		81FF7B651915A13B0054D1F1 /* chopstick-under.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "chopstick-under.png"; path = "Dice/Images.xcassets/chopstick-under.png"; sourceTree = SOURCE_ROOT; };
+		81FF7B661915A13B0054D1F1 /* chopstick-over.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "chopstick-over.png"; path = "Dice/Images.xcassets/chopstick-over.png"; sourceTree = SOURCE_ROOT; };
+		81FF7B671915A13B0054D1F1 /* cancel-button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "cancel-button.png"; path = "Dice/Images.xcassets/cancel-button.png"; sourceTree = SOURCE_ROOT; };
+		81FF7B731915A1480054D1F1 /* three-dish.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "three-dish.png"; path = "Dice/Images.xcassets/three-dish.png"; sourceTree = SOURCE_ROOT; };
+		81FF7B741915A1480054D1F1 /* table-launch-568.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "table-launch-568.png"; path = "Dice/Images.xcassets/table-launch-568.png"; sourceTree = SOURCE_ROOT; };
+		81FF7B751915A1480054D1F1 /* table-launch-480.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "table-launch-480.png"; path = "Dice/Images.xcassets/table-launch-480.png"; sourceTree = SOURCE_ROOT; };
+		81FF7B761915A1480054D1F1 /* table-568.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "table-568.png"; path = "Dice/Images.xcassets/table-568.png"; sourceTree = SOURCE_ROOT; };
+		81FF7B771915A1480054D1F1 /* table-480.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "table-480.png"; path = "Dice/Images.xcassets/table-480.png"; sourceTree = SOURCE_ROOT; };
+		81FF7B781915A1480054D1F1 /* plate-long.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "plate-long.png"; path = "Dice/Images.xcassets/plate-long.png"; sourceTree = SOURCE_ROOT; };
+		81FF7B791915A1480054D1F1 /* napkin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = napkin.png; path = Dice/Images.xcassets/napkin.png; sourceTree = SOURCE_ROOT; };
+		81FF7B811915A1A40054D1F1 /* DiceTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "DiceTests-Info.plist"; path = "DiceTests/DiceTests-Info.plist"; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		81B9CF1A1860FD7D00F9646C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				817F727C1881DD0B0005BEDD /* MapKit.framework in Frameworks */,
+				81A5B9FD186796C100C36B4E /* QuartzCore.framework in Frameworks */,
+				81A1E9121866DE4F00ACCE4A /* AudioToolbox.framework in Frameworks */,
+				81B9CF591860FDE300F9646C /* CoreLocation.framework in Frameworks */,
+				81B9CF231860FD7D00F9646C /* CoreGraphics.framework in Frameworks */,
+				81B9CF251860FD7D00F9646C /* UIKit.framework in Frameworks */,
+				81B9CF211860FD7D00F9646C /* Foundation.framework in Frameworks */,
+				7F2A2FC03CD14542A57444C1 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		81B9CF3E1860FD7D00F9646C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				81B9CF431860FD7D00F9646C /* XCTest.framework in Frameworks */,
+				81B9CF451860FD7D00F9646C /* UIKit.framework in Frameworks */,
+				81B9CF441860FD7D00F9646C /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		810F7C7B18640C930058769E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				81F756511919FFA50091A343 /* DiceYelpConstants.h */,
+				81FF7B4D1915A0C30054D1F1 /* DiceYelpRecommendation.m */,
+				81FF7B4E1915A0C30054D1F1 /* DiceYelpRecommendation.h */,
+				81FF7B4F1915A0C30054D1F1 /* DiceRandomYelpRecommender.m */,
+				81FF7B501915A0C30054D1F1 /* DiceRandomYelpRecommender.h */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		810F7C7D18640CD00058769E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				81FF7B4A1915A0B20054D1F1 /* DiceMainView.m */,
+				81FF7B4B1915A0B20054D1F1 /* DiceMainView.h */,
+				816CA44C1915A20D00B279FC /* Main_iPhone.storyboard */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		810F7C7E18640CDF0058769E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				81FF7B441915A05C0054D1F1 /* DiceLaunchViewController.h */,
+				81FF7B451915A05C0054D1F1 /* DiceLaunchViewController.m */,
+				81FF7B461915A05C0054D1F1 /* DiceMainViewController.h */,
+				81FF7B471915A05C0054D1F1 /* DiceMainViewController.m */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		81B8DDA6186190B30093CC04 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				81FF7B731915A1480054D1F1 /* three-dish.png */,
+				81FF7B741915A1480054D1F1 /* table-launch-568.png */,
+				81FF7B751915A1480054D1F1 /* table-launch-480.png */,
+				81FF7B761915A1480054D1F1 /* table-568.png */,
+				81FF7B771915A1480054D1F1 /* table-480.png */,
+				81FF7B781915A1480054D1F1 /* plate-long.png */,
+				81FF7B791915A1480054D1F1 /* napkin.png */,
+				81FF7B5D1915A13B0054D1F1 /* image_not_available.png */,
+				81FF7B5E1915A13B0054D1F1 /* image_not_available_small.png */,
+				81FF7B5F1915A13B0054D1F1 /* icon.png */,
+				81FF7B601915A13B0054D1F1 /* icon-launch.png */,
+				81FF7B611915A13B0054D1F1 /* icon-60.png */,
+				81FF7B621915A13B0054D1F1 /* icon-40.png */,
+				81FF7B631915A13B0054D1F1 /* icon-29.png */,
+				81FF7B641915A13B0054D1F1 /* fork.png */,
+				81FF7B651915A13B0054D1F1 /* chopstick-under.png */,
+				81FF7B661915A13B0054D1F1 /* chopstick-over.png */,
+				81FF7B671915A13B0054D1F1 /* cancel-button.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		81B9CF141860FD7C00F9646C = {
+			isa = PBXGroup;
+			children = (
+				81B9CF261860FD7D00F9646C /* Dice */,
+				81B9CF481860FD7D00F9646C /* DiceTests */,
+				81B9CF1F1860FD7D00F9646C /* Frameworks */,
+				81B9CF1E1860FD7D00F9646C /* Products */,
+				2157BFFC39B24F88819A45DA /* Pods.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		81B9CF1E1860FD7D00F9646C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				81B9CF1D1860FD7D00F9646C /* Dice.app */,
+				81B9CF411860FD7D00F9646C /* DiceTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		81B9CF1F1860FD7D00F9646C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				817F727B1881DD0B0005BEDD /* MapKit.framework */,
+				81A5B9FC186796C100C36B4E /* QuartzCore.framework */,
+				81A1E9111866DE4F00ACCE4A /* AudioToolbox.framework */,
+				81B9CF581860FDE300F9646C /* CoreLocation.framework */,
+				81B9CF201860FD7D00F9646C /* Foundation.framework */,
+				81B9CF221860FD7D00F9646C /* CoreGraphics.framework */,
+				81B9CF241860FD7D00F9646C /* UIKit.framework */,
+				81B9CF421860FD7D00F9646C /* XCTest.framework */,
+				555CA1F52402431A82186443 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		81B9CF261860FD7D00F9646C /* Dice */ = {
+			isa = PBXGroup;
+			children = (
+				81FF7B411915A0420054D1F1 /* DiceLogger.h */,
+				81FF7B421915A0420054D1F1 /* DiceLogger.m */,
+				81FF7B401915A0340054D1F1 /* DiceConstants.h */,
+				810F7C7E18640CDF0058769E /* Controllers */,
+				810F7C7D18640CD00058769E /* Views */,
+				810F7C7B18640C930058769E /* Models */,
+				81FF7B531915A0CF0054D1F1 /* Images.xcassets */,
+				81B9CF271860FD7D00F9646C /* Supporting Files */,
+			);
+			name = Dice;
+			path = SampleIOSAppUsingPlanB;
+			sourceTree = "<group>";
+		};
+		81B9CF271860FD7D00F9646C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				81FF7B5B1915A0F50054D1F1 /* main.m */,
+				81FF7B551915A0E30054D1F1 /* DiceAppDelegate.m */,
+				81FF7B561915A0E30054D1F1 /* DiceAppDelegate.h */,
+				81FF7B571915A0E30054D1F1 /* Dice-Prefix.pch */,
+				81FF7B581915A0E30054D1F1 /* Dice-Info.plist */,
+				816CA44F1915A22600B279FC /* InfoPlist.strings */,
+				81B8DDA6186190B30093CC04 /* Images */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		81B9CF481860FD7D00F9646C /* DiceTests */ = {
+			isa = PBXGroup;
+			children = (
+				81B9CF491860FD7D00F9646C /* Supporting Files */,
+			);
+			name = DiceTests;
+			path = SampleIOSAppUsingPlanBTests;
+			sourceTree = "<group>";
+		};
+		81B9CF491860FD7D00F9646C /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				81FF7B811915A1A40054D1F1 /* DiceTests-Info.plist */,
+				816CA4521915A23A00B279FC /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		81B9CF1C1860FD7D00F9646C /* Dice */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 81B9CF521860FD7D00F9646C /* Build configuration list for PBXNativeTarget "Dice" */;
+			buildPhases = (
+				73FEB79160794382A03E2733 /* Check Pods Manifest.lock */,
+				81B9CF191860FD7D00F9646C /* Sources */,
+				81B9CF1A1860FD7D00F9646C /* Frameworks */,
+				81B9CF1B1860FD7D00F9646C /* Resources */,
+				96BA506DCC3C4FBCA1F4BC4B /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Dice;
+			productName = SampleIOSAppUsingPlanB;
+			productReference = 81B9CF1D1860FD7D00F9646C /* Dice.app */;
+			productType = "com.apple.product-type.application";
+		};
+		81B9CF401860FD7D00F9646C /* DiceTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 81B9CF551860FD7D00F9646C /* Build configuration list for PBXNativeTarget "DiceTests" */;
+			buildPhases = (
+				81B9CF3D1860FD7D00F9646C /* Sources */,
+				81B9CF3E1860FD7D00F9646C /* Frameworks */,
+				81B9CF3F1860FD7D00F9646C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				81B9CF471860FD7D00F9646C /* PBXTargetDependency */,
+			);
+			name = DiceTests;
+			productName = SampleIOSAppUsingPlanBTests;
+			productReference = 81B9CF411860FD7D00F9646C /* DiceTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		81B9CF151860FD7C00F9646C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = DemoCrumbApp;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Tracktor Beam";
+				TargetAttributes = {
+					81B9CF1C1860FD7D00F9646C = {
+						DevelopmentTeam = C9QFX7Y2EN;
+						SystemCapabilities = {
+							com.apple.iOS = {
+								enabled = 0;
+							};
+						};
+					};
+					81B9CF401860FD7D00F9646C = {
+						TestTargetID = 81B9CF1C1860FD7D00F9646C;
+					};
+				};
+			};
+			buildConfigurationList = 81B9CF181860FD7C00F9646C /* Build configuration list for PBXProject "Dice" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 81B9CF141860FD7C00F9646C;
+			productRefGroup = 81B9CF1E1860FD7D00F9646C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				81B9CF1C1860FD7D00F9646C /* Dice */,
+				81B9CF401860FD7D00F9646C /* DiceTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		81B9CF1B1860FD7D00F9646C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				81FF7B6C1915A13B0054D1F1 /* icon-60.png in Resources */,
+				816CA4541915A23A00B279FC /* InfoPlist.strings in Resources */,
+				816CA4511915A22600B279FC /* InfoPlist.strings in Resources */,
+				81FF7B7A1915A1480054D1F1 /* three-dish.png in Resources */,
+				81FF7B6E1915A13B0054D1F1 /* icon-29.png in Resources */,
+				81FF7B7C1915A1480054D1F1 /* table-launch-480.png in Resources */,
+				81FF7B721915A13B0054D1F1 /* cancel-button.png in Resources */,
+				81FF7B6F1915A13B0054D1F1 /* fork.png in Resources */,
+				81FF7B7B1915A1480054D1F1 /* table-launch-568.png in Resources */,
+				81FF7B541915A0CF0054D1F1 /* Images.xcassets in Resources */,
+				81FF7B7D1915A1480054D1F1 /* table-568.png in Resources */,
+				81FF7B7F1915A1480054D1F1 /* plate-long.png in Resources */,
+				81FF7B7E1915A1480054D1F1 /* table-480.png in Resources */,
+				81FF7B701915A13B0054D1F1 /* chopstick-under.png in Resources */,
+				81FF7B711915A13B0054D1F1 /* chopstick-over.png in Resources */,
+				81FF7B801915A1480054D1F1 /* napkin.png in Resources */,
+				81FF7B681915A13B0054D1F1 /* image_not_available.png in Resources */,
+				81FF7B6D1915A13B0054D1F1 /* icon-40.png in Resources */,
+				816CA44E1915A20D00B279FC /* Main_iPhone.storyboard in Resources */,
+				81FF7B691915A13B0054D1F1 /* image_not_available_small.png in Resources */,
+				81FF7B6A1915A13B0054D1F1 /* icon.png in Resources */,
+				81FF7B6B1915A13B0054D1F1 /* icon-launch.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		81B9CF3F1860FD7D00F9646C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		73FEB79160794382A03E2733 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		96BA506DCC3C4FBCA1F4BC4B /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		81B9CF191860FD7D00F9646C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				81FF7B591915A0E30054D1F1 /* DiceAppDelegate.m in Sources */,
+				81FF7B481915A05C0054D1F1 /* DiceLaunchViewController.m in Sources */,
+				81FF7B491915A05C0054D1F1 /* DiceMainViewController.m in Sources */,
+				81FF7B4C1915A0B20054D1F1 /* DiceMainView.m in Sources */,
+				81FF7B511915A0C30054D1F1 /* DiceYelpRecommendation.m in Sources */,
+				81FF7B431915A0420054D1F1 /* DiceLogger.m in Sources */,
+				81FF7B521915A0C30054D1F1 /* DiceRandomYelpRecommender.m in Sources */,
+				81FF7B5C1915A0F50054D1F1 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		81B9CF3D1860FD7D00F9646C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		81B9CF471860FD7D00F9646C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 81B9CF1C1860FD7D00F9646C /* Dice */;
+			targetProxy = 81B9CF461860FD7D00F9646C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		816CA44C1915A20D00B279FC /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				816CA44D1915A20D00B279FC /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		816CA44F1915A22600B279FC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				816CA4501915A22600B279FC /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		816CA4521915A23A00B279FC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				816CA4531915A23A00B279FC /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		81B9CF501860FD7D00F9646C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = Dice;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		81B9CF511860FD7D00F9646C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				PRODUCT_NAME = Dice;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		81B9CF531860FD7D00F9646C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2157BFFC39B24F88819A45DA /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Dice/Dice-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
+				INFOPLIST_FILE = "Dice/Dice-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = "$(inherited)";
+				PRODUCT_NAME = Dice;
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		81B9CF541860FD7D00F9646C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2157BFFC39B24F88819A45DA /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(SRCROOT)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Dice/Dice-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+				);
+				INFOPLIST_FILE = "Dice/Dice-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				OTHER_LDFLAGS = "$(inherited)";
+				PRODUCT_NAME = Dice;
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		81B9CF561860FD7D00F9646C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Dice.app/Dice";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/OAuthConsumer-etvyanwczrppnabrlrhxaapibbfr/Build/Products/Debug-iphoneos",
+					/Users/arpanghosh/Developer/iOS/SampleIOSAppUsingPlanB,
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Dice/Dice-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "DiceTests/DiceTests-Info.plist";
+				PRODUCT_NAME = DiceTests;
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		81B9CF571860FD7D00F9646C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Dice.app/Dice";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+					"$(USER_LIBRARY_DIR)/Developer/Xcode/DerivedData/OAuthConsumer-etvyanwczrppnabrlrhxaapibbfr/Build/Products/Debug-iphoneos",
+					/Users/arpanghosh/Developer/iOS/SampleIOSAppUsingPlanB,
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Dice/Dice-Prefix.pch";
+				INFOPLIST_FILE = "DiceTests/DiceTests-Info.plist";
+				PRODUCT_NAME = DiceTests;
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		81B9CF181860FD7C00F9646C /* Build configuration list for PBXProject "Dice" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				81B9CF501860FD7D00F9646C /* Debug */,
+				81B9CF511860FD7D00F9646C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		81B9CF521860FD7D00F9646C /* Build configuration list for PBXNativeTarget "Dice" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				81B9CF531860FD7D00F9646C /* Debug */,
+				81B9CF541860FD7D00F9646C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		81B9CF551860FD7D00F9646C /* Build configuration list for PBXNativeTarget "DiceTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				81B9CF561860FD7D00F9646C /* Debug */,
+				81B9CF571860FD7D00F9646C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 81B9CF151860FD7C00F9646C /* Project object */;
+}

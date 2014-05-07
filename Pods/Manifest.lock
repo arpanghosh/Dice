@@ -1,0 +1,13 @@
+PODS:
+  - nv-ios-http-status (0.0.1)
+  - ObjectiveCOAuth1Consumer (0.0.1)
+
+DEPENDENCIES:
+  - nv-ios-http-status
+  - ObjectiveCOAuth1Consumer
+
+SPEC CHECKSUMS:
+  nv-ios-http-status: bd05a36d8e2e8dc4ad7678c339dcab9dba3783ad
+  ObjectiveCOAuth1Consumer: 63a05503733a1067b8da4a18456affcea2611ff6
+
+COCOAPODS: 0.32.1
